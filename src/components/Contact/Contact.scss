@@ -1,0 +1,31 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: auto;
+    margin-top: 50px;
+
+    &-message::placeholder {
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    &-button {
+        margin-top: 20px;
+        color: white;
+        background-color: black;
+    }
+}
+
+input {
+    margin-bottom: 20px;
+    
+
+    &::placeholder {
+        font-family: 'Courier New', Courier, monospace;
+
+    }
+}
+
+
+
+
