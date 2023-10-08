@@ -8,6 +8,10 @@
     height: 50px;
     padding: 0;  
     overflow: hidden;
+    position: sticky;
+    top: 0; 
+    background-color: black; 
+
 
     &-logo {
       width: 60px;  
@@ -15,6 +19,6 @@
 
     &-list {
         text-decoration: none;
-        color: black;
+        color: white;
     }
 }

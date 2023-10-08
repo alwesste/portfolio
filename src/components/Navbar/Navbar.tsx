@@ -1,5 +1,5 @@
 import './Navbar.scss';
-import logo from "../../../public/images/logo-removebg-preview.png"
+import logo from "../../assets/logo/logo-removebg-preview.png"
 
 const Navbar: React.FC = () => {
  

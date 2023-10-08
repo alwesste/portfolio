@@ -1,5 +1,5 @@
 import "./footer.scss"
-import reactAndVite from "../../../public/images/reactVite.png"
+import reactAndVite from "../../assets/logo/reactVite.png"
 
 const Footer: React.FC = () => {
 
