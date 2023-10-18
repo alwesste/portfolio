@@ -1,7 +1,7 @@
 .navbar {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     list-style: none;
     gap: 30px;
     margin: auto;
@@ -11,14 +11,28 @@
     position: sticky;
     top: 0; 
     background-color: black; 
+    z-index: 9999;
 
 
-    &-logo {
-      width: 60px;  
+    &-logoConteiner {
+      width: 60px; 
+      
+      .navbar-logo {
+        width: 60px;
+        margin-left: 100px;
+      }
+      
     }
 
-    &-list {
-        text-decoration: none;
-        color: white;
+    &-listConteiner {
+        display: flex;
+        width: 500px;
+       
+        .navbar-list {
+          color: white;
+          text-decoration: none;        
+          margin: 20px;
+
+        }
     }
 }
