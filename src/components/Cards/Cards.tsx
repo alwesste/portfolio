@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 
+// import {cards} from "../../assets/variables/variables"
 import "./Cards.scss"
 import events from "../../assets/images/77events.png"
 import argentBank from "../../assets/images/argentBank.png"
@@ -9,12 +10,17 @@ import ohmyfood from "../../assets/images/ohmyfood.png"
 import printit from "../../assets/images/printit.png"
 import sophie from "../../assets/images/sophie.png"
 
-
+// const workPresentation: Array<{ test: string }> = [
+//     {
+//       test: "je suis un texte"
+//     }
+//   ];
+  
 
 const Cards: React.FC = () => {
 
     useEffect(() => {
-        const tiltCards = document.querySelectorAll('.card') as NodeListOf<HTMLDivElement>;
+        const tiltCards = document.querySelectorAll('.card-Img') as NodeListOf<HTMLDivElement>;
     
         tiltCards.forEach((card) => {
             card.addEventListener('mousemove', (e: MouseEvent) => {
@@ -36,9 +42,16 @@ const Cards: React.FC = () => {
         });
     }, []);
 
-
- 
-    const cards = [events, argentBank, booki, kasa, ohmyfood, printit, sophie];
+        const cards = [
+            { img: events, text: "Texte pour la carte 1" },
+            { img: argentBank, text: "Texte pour la carte 2" },
+            { img: booki, text: "Texte pour la carte 3" },
+            { img: kasa, text: "Texte pour la carte 4" },
+            { img: ohmyfood, text: "Texte pour la carte 5" },
+            { img: printit, text: "Texte pour la carte 6" },
+            { img: sophie, text: "Texte pour la carte 7" }
+        ];
+      
 
     return (
         
@@ -48,11 +61,13 @@ const Cards: React.FC = () => {
 
             <div className="cardContainer">
                 {cards.map((card, index) => (
-                    <div className="card" key={index}>
-                        <img className="card-Img" src={card} alt={`Card ${index}`} />
+                    <div className={` ${index % 2 === 0 ? "card-even" : "card-odd"}`} key={index}>
+                        <img className="card-Img" src={card.img} alt={`Card ${index}`} />
+                        <p className='card-text'>{card.text}</p>
                     </div>
-                ))}
+                ))}            
             </div>
+           
 
         </section>
         

@@ -5,3 +5,13 @@ Ma connaissance du référencement (SEO) et mon expérience dans l'optimisation 
 mais aussi performants sur les moteurs de recherche.Je suis adepte des méthodes agiles, ce qui signifie que je suis flexible, réactif et axé sur la collaboration. Je suis à l'aise dans 
 l'environnement Node.js et je peux intégrer des fonctionnalités côté serveur dans mes applications front-end. Cela me permet de créer des applications web robustes et évolutives.
 `
+
+// export const cards = [
+//     {img: events, text: workPresentation }, 
+//     {argentBank, text: workPresentation},
+//     {booki, text: workPresentation},
+//     {kasa, text: workPresentation},
+//     {ohmyfood, text: workPresentation},
+//     {printit, text: workPresentation},
+//     {sophie, text: workPresentation}
+// ];

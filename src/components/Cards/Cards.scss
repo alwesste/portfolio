@@ -2,38 +2,60 @@
     background-color: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
-   
     &-title {
         text-align: center;
+        margin-bottom: 100px;
     }
 }
 
+.textContainer {
+    display: flex;
+    gap: 500px;
+    width: 1440px;
+    margin: auto ;
+}
+
+
+
 .cardContainer {
     display: flex;
-    justify-content: center;
-    gap: 20%;
-    flex-wrap: wrap;
-    overflow: hidden;
+    flex-direction: column;
+    margin: auto;    
+    gap: 100px;
+    width: 1440px;
+    
+    
 }
 
 .card {
-    height: 300px;
-    width: 300px;   
-    margin: 20px;
+    width: 1400px;   
     border-radius: 10px;
-    box-shadow: 0 0 100px rgb(193, 192, 192);
-    transform-style: preserve-3d;
-    transform: 
-    perspective(5000px)
-    rotateY(var(--rotateY))
-    rotateX(var(--rotateX));
            
     &-Img {
         object-fit: cover;
-        height: 300px;
-        width: 300px;
+        height: 400px;
+        width: 400px;
         border-radius: 10px;
-    }           
+        box-shadow: 0 0 100px rgb(193, 192, 192);
+        transform-style: preserve-3d;
+        transform: 
+            perspective(5000px)
+            rotateY(var(--rotateY))
+            rotateX(var(--rotateX));
+    }     
+}
+
+.card-even {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;    
+}
+    
+.card-odd {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 html {
