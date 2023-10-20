@@ -6,12 +6,44 @@ mais aussi performants sur les moteurs de recherche.Je suis adepte des méthodes
 l'environnement Node.js et je peux intégrer des fonctionnalités côté serveur dans mes applications front-end. Cela me permet de créer des applications web robustes et évolutives.
 `
 
-// export const cards = [
-//     {img: events, text: workPresentation }, 
-//     {argentBank, text: workPresentation},
-//     {booki, text: workPresentation},
-//     {kasa, text: workPresentation},
-//     {ohmyfood, text: workPresentation},
-//     {printit, text: workPresentation},
-//     {sophie, text: workPresentation}
-// ];
+import events from "../../assets/images/77events.png"
+import argentBank from "../../assets/images/argentBank.png"
+import booki from "../../assets/images/booki.png"
+import kasa from "../../assets/images/kasa.png"
+import ohmyfood from "../../assets/images/ohmyfood.png"
+import printit from "../../assets/images/printit.png"
+import sophie from "../../assets/images/sophie.png"
+
+const textTitleEvents = 'Events';
+const textTitleArgentBank = 'ArgentBank';
+const textTitleBooki = 'Bookie';
+const textTitleKasa = 'Kasa';
+const textTitleOhmyfood = 'Ohmyfood';
+const textTitlePrintit = 'PrintIt';
+const textTitleSophie = 'Sophie Bluel';
+
+const textEvents: string = "Ceci est un texte pour le projet '77 Events'.";
+const textBank: string = "Ceci est un texte pour le projet 'Argent Bank'.";
+const textBooki: string = "Ceci est un texte pour le projet 'Booki'.";
+const textKasa: string = "Ceci est un texte pour le projet 'Kasa'.";
+const textOhmyfood: string = "Ceci est un texte pour le projet 'OhMyFood'.";
+const textPrintIt: string = "Ceci est un texte pour le projet 'PrintIt'.";
+const textSophie: string = "Ceci est un texte pour le projet 'Sophie'.";
+
+export interface Card {
+    img: string;
+    text: string;
+    title: string
+}
+
+
+export const cards: Card[] = [
+    { img: events, text: textEvents, title: textTitleEvents },
+    { img: argentBank, text: textBank, title: textTitleArgentBank},
+    { img: booki, text: textBooki, title: textTitleBooki},
+    { img: kasa, text: textKasa, title: textTitleKasa},
+    { img: ohmyfood, text: textOhmyfood, title: textTitleOhmyfood},
+    { img: printit, text: textPrintIt, title: textTitlePrintit},
+    { img: sophie, text: textSophie, title: textTitleSophie}
+];
+

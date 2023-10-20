@@ -8,27 +8,16 @@
     }
 }
 
-.textContainer {
-    display: flex;
-    gap: 500px;
-    width: 1440px;
-    margin: auto ;
-}
-
-
-
 .cardContainer {
     display: flex;
     flex-direction: column;
     margin: auto;    
     gap: 100px;
-    width: 1440px;
-    
-    
+    width: 1150px;   
 }
 
 .card {
-    width: 1400px;   
+    width: 130  0px;   
     border-radius: 10px;
            
     &-Img {
@@ -42,7 +31,22 @@
             perspective(5000px)
             rotateY(var(--rotateY))
             rotateX(var(--rotateX));
-    }     
+    }   
+    
+    &-description {
+        width: 500px;
+        transition: opacity 1s;
+        text-align: left;
+        
+        // &.visible {
+        //     opacity: 1;
+        // }
+    }
+
+    &-title {
+        text-transform: uppercase;
+        text-align: left;
+    }
 }
 
 .card-even {
@@ -56,6 +60,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-align: end;
 }
 
 html {

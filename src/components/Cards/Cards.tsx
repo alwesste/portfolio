@@ -1,35 +1,46 @@
 import React, { useEffect } from 'react';
 
-// import {cards} from "../../assets/variables/variables"
+import {cards} from "../../assets/variables/variables"
 import "./Cards.scss"
-import events from "../../assets/images/77events.png"
-import argentBank from "../../assets/images/argentBank.png"
-import booki from "../../assets/images/booki.png"
-import kasa from "../../assets/images/kasa.png"
-import ohmyfood from "../../assets/images/ohmyfood.png"
-import printit from "../../assets/images/printit.png"
-import sophie from "../../assets/images/sophie.png"
-
-// const workPresentation: Array<{ test: string }> = [
-//     {
-//       test: "je suis un texte"
-//     }
-//   ];
-  
+ 
 
 const Cards: React.FC = () => {
 
     useEffect(() => {
+
+        let observer = new IntersectionObserver((entries) => {
+            for (const entry of entries) {
+                if (entry.isIntersecting) {
+                    entry.target.animate(
+                        [
+                            { opacity: 0 },
+                            { opacity: 1 },
+                        ],
+                        {
+                            duration: 1000
+                        }
+                    );
+                    observer.unobserve(entry.target);
+                }
+            } 
+        },);
+        
+        const elementsToObserve = document.querySelectorAll('.card-text');
+        elementsToObserve.forEach((element) => {
+        observer.observe(element);
+        
+        });
+        
         const tiltCards = document.querySelectorAll('.card-Img') as NodeListOf<HTMLDivElement>;
-    
+
         tiltCards.forEach((card) => {
             card.addEventListener('mousemove', (e: MouseEvent) => {
                 const rect = card.getBoundingClientRect();
                 const cardCenterX = rect.left + rect.width / 2;
                 const cardCenterY = rect.top + rect.height / 2;
                 
-                const xAxis = (e.clientX - cardCenterX) / 10;
-                const yAxis = (e.clientY - cardCenterY) / 10;
+                const xAxis = (e.clientX - cardCenterX) / 30;
+                const yAxis = (e.clientY - cardCenterY) / 30;
 
                 card.style.setProperty("--rotateX", -1 * yAxis + "deg");
                 card.style.setProperty("--rotateY", xAxis + "deg");            
@@ -39,20 +50,10 @@ const Cards: React.FC = () => {
                 card.style.removeProperty("--rotateX");
                 card.style.removeProperty("--rotateY");
             });
-        });
-    }, []);
+        });          
+    },[]);    
 
-        const cards = [
-            { img: events, text: "Texte pour la carte 1" },
-            { img: argentBank, text: "Texte pour la carte 2" },
-            { img: booki, text: "Texte pour la carte 3" },
-            { img: kasa, text: "Texte pour la carte 4" },
-            { img: ohmyfood, text: "Texte pour la carte 5" },
-            { img: printit, text: "Texte pour la carte 6" },
-            { img: sophie, text: "Texte pour la carte 7" }
-        ];
-      
-
+    
     return (
         
         <section className="project" id="my-works">
@@ -61,9 +62,15 @@ const Cards: React.FC = () => {
 
             <div className="cardContainer">
                 {cards.map((card, index) => (
-                    <div className={` ${index % 2 === 0 ? "card-even" : "card-odd"}`} key={index}>
+                    <div className={`card ${index % 2 === 0 ? "card-even" : "card-odd"}`} key={index}>
                         <img className="card-Img" src={card.img} alt={`Card ${index}`} />
-                        <p className='card-text'>{card.text}</p>
+                        <div className='card-text'>
+                            <h1 className='card-title'>
+                            {card.title}</h1>
+                            <p className={`card-description`}>
+                            {card.text}</p>
+                        </div>
+                        
                     </div>
                 ))}            
             </div>
