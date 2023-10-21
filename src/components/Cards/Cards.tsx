@@ -9,15 +9,16 @@ const Cards: React.FC = () => {
     useEffect(() => {
 
         let observer = new IntersectionObserver((entries) => {
+            console.log(entries)
             for (const entry of entries) {
                 if (entry.isIntersecting) {
                     entry.target.animate(
                         [
-                            { opacity: 0 },
-                            { opacity: 1 },
+                            { transform: "translateY(50px)", opacity: 0 },
+                            { transform: "translateY(0px)", opacity: 1 },
                         ],
                         {
-                            duration: 1000
+                            duration: 500
                         }
                     );
                     observer.unobserve(entry.target);
@@ -65,8 +66,8 @@ const Cards: React.FC = () => {
                     <div className={`card ${index % 2 === 0 ? "card-even" : "card-odd"}`} key={index}>
                         <img className="card-Img" src={card.img} alt={`Card ${index}`} />
                         <div className='card-text'>
-                            <h1 className='card-title'>
-                            {card.title}</h1>
+                            <h2 className='card-title'>
+                            {card.title}</h2>
                             <p className={`card-description`}>
                             {card.text}</p>
                         </div>

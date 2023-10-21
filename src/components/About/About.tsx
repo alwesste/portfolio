@@ -8,10 +8,10 @@ const About: React.FC = () => {
 
         <>
             <div className='aboutContainer'>
-                <div className='parallax'></div>
+                <div className='parallax1'></div>
                 <h1 className='aboutContainer-title' id='about'>About me</h1>
                 <p className='aboutContainer-presentation'>{presentation}</p>
-
+                <div className='parallax2'></div>
             </div>
         
         </>

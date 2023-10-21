@@ -13,6 +13,7 @@ import kasa from "../../assets/images/kasa.png"
 import ohmyfood from "../../assets/images/ohmyfood.png"
 import printit from "../../assets/images/printit.png"
 import sophie from "../../assets/images/sophie.png"
+import nina from  "../../assets/images/ninaCarducci.png"
 
 const textTitleEvents = 'Events';
 const textTitleArgentBank = 'ArgentBank';
@@ -21,14 +22,17 @@ const textTitleKasa = 'Kasa';
 const textTitleOhmyfood = 'Ohmyfood';
 const textTitlePrintit = 'PrintIt';
 const textTitleSophie = 'Sophie Bluel';
+const textTitleNina = "Nina Carducci"
 
-const textEvents: string = "Ceci est un texte pour le projet '77 Events'.";
-const textBank: string = "Ceci est un texte pour le projet 'Argent Bank'.";
-const textBooki: string = "Ceci est un texte pour le projet 'Booki'.";
-const textKasa: string = "Ceci est un texte pour le projet 'Kasa'.";
-const textOhmyfood: string = "Ceci est un texte pour le projet 'OhMyFood'.";
-const textPrintIt: string = "Ceci est un texte pour le projet 'PrintIt'.";
-const textSophie: string = "Ceci est un texte pour le projet 'Sophie'.";
+const textEvents: string = "Prise de connaissance de la codebase du site web de 77Events en vue de la gestion des problèmes d'affichage présents sur le site, ainsi que la création de tests unitaires visant à renforcer la robustesse du site.";
+const textBank: string = "Transformation d'un projet statique basé sur HTML et CSS en un projet React.JS. Conception de la page d'accueil, d'une page de connexion et d'une fonctionnalité de déconnexion. Création de la page des transactions, offrant aux utilisateurs un accès à leurs différents comptes bancaires et à leurs transactions.";
+const textBooki: string = "Intégration de l'interface utilisateur avec le code HTML et CSS existant.";
+const textKasa: string = "Lancement du projet React et développement complet de l'application, y compris les composants React, les routes React Router, en suivant les maquettes Figma, avec une attention particulière à la réactivité de l'interface.";
+const textOhmyfood: string = "Conception d'un site \"mobile first\" répertoriant les menus de restaurants gastronomiques.";
+const textPrintIt: string = "Implémentation de la dynamique du site initialement statique à l'aide de JavaScript.";
+const textSophie: string = "Présentation des travaux de l'architecte, création de la page de connexion de l'administrateur du site, et développement de la modale gérant le téléchargement de nouveaux médias.";
+const textNina: string = "Optimisation d'un site de photographie, incluant l'implémentation d'un référencement global, l'ajout de métadonnées pour les réseaux sociaux, des améliorations liées à l'accessibilité du site, ainsi que la production d'un rapport d'optimisation exposant les actions entreprises et leur impact.";
+
 
 export interface Card {
     img: string;
@@ -44,6 +48,7 @@ export const cards: Card[] = [
     { img: kasa, text: textKasa, title: textTitleKasa},
     { img: ohmyfood, text: textOhmyfood, title: textTitleOhmyfood},
     { img: printit, text: textPrintIt, title: textTitlePrintit},
-    { img: sophie, text: textSophie, title: textTitleSophie}
+    { img: sophie, text: textSophie, title: textTitleSophie},
+    { img: nina, text: textNina, title: textTitleNina},
 ];
 

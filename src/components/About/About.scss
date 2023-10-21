@@ -15,13 +15,24 @@
     }
 }
 
-.parallax {
+.parallax1 {
     overflow-x: hidden;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url('../../assets/images/frontEnd.jpg');
+    height: 100vh;
+    width: 100%;
+}
+
+.parallax2 {
+    overflow-x: hidden;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../../assets/images/react-nodejs.webp');
     height: 100vh;
     width: 100%;
 }
