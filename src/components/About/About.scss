@@ -14,6 +14,22 @@
 
     }
 }
+  
+
+.ball {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    background-color: rgb(208, 53, 53);
+    z-index: 10000;
+    border: 2px solid rgb(208, 53, 53);
+    height: 15px;
+    width: 15px;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 1.5s;
+}
 
 .parallax1 {
     overflow-x: hidden;

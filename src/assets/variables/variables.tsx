@@ -6,23 +6,24 @@ mais aussi performants sur les moteurs de recherche.Je suis adepte des méthodes
 l'environnement Node.js et je peux intégrer des fonctionnalités côté serveur dans mes applications front-end. Cela me permet de créer des applications web robustes et évolutives.
 `
 
-import events from "../../assets/images/77events.png"
-import argentBank from "../../assets/images/argentBank.png"
-import booki from "../../assets/images/booki.png"
-import kasa from "../../assets/images/kasa.png"
-import ohmyfood from "../../assets/images/ohmyfood.png"
-import printit from "../../assets/images/printit.png"
-import sophie from "../../assets/images/sophie.png"
-import nina from  "../../assets/images/ninaCarducci.png"
+import events from "../../assets/images/77events.png";
+import argentBank from "../../assets/images/argentBank.png";
+import booki from "../../assets/images/booki.png";
+import kasa from "../../assets/images/kasa.png";
+import ohmyfood from "../../assets/images/ohmyfood.png";
+import printit from "../../assets/images/printit.png";
+import sophie from "../../assets/images/sophie.png";
+import nina from  "../../assets/images/ninaCarducci.png";
 
-const textTitleEvents = 'Events';
-const textTitleArgentBank = 'ArgentBank';
-const textTitleBooki = 'Bookie';
-const textTitleKasa = 'Kasa';
-const textTitleOhmyfood = 'Ohmyfood';
-const textTitlePrintit = 'PrintIt';
-const textTitleSophie = 'Sophie Bluel';
-const textTitleNina = "Nina Carducci"
+const textTitleEvents: string = 'Events';
+const textTitleArgentBank: string = 'ArgentBank';
+const textTitleBooki: string = 'Bookie';
+const textTitleKasa: string = 'Kasa';
+const textTitleOhmyfood: string = 'Ohmyfood';
+const textTitlePrintit: string = 'PrintIt';
+const textTitleSophie: string = 'Sophie Bluel';
+const textTitleNina: string = "Nina Carducci"
+
 
 const textEvents: string = "Prise de connaissance de la codebase du site web de 77Events en vue de la gestion des problèmes d'affichage présents sur le site, ainsi que la création de tests unitaires visant à renforcer la robustesse du site.";
 const textBank: string = "Transformation d'un projet statique basé sur HTML et CSS en un projet React.JS. Conception de la page d'accueil, d'une page de connexion et d'une fonctionnalité de déconnexion. Création de la page des transactions, offrant aux utilisateurs un accès à leurs différents comptes bancaires et à leurs transactions.";

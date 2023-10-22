@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 
 import {cards} from "../../assets/variables/variables"
+
 import "./Cards.scss"
  
 
@@ -18,7 +19,7 @@ const Cards: React.FC = () => {
                             { transform: "translateY(0px)", opacity: 1 },
                         ],
                         {
-                            duration: 500
+                            duration: 400
                         }
                     );
                     observer.unobserve(entry.target);
