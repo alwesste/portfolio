@@ -38,8 +38,10 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url('../../assets/images/frontEnd.jpg');
-    height: 100vh;
+    height: 50vh;
     width: 100%;
+    object-fit: cover;
+    
 }
 
 .parallax2 {
@@ -49,6 +51,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url('../../assets/images/react-nodejs.webp');
-    height: 100vh;
+    height: 50vh;
     width: 100%;
+    object-fit: cover;
 }

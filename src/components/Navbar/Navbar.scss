@@ -1,39 +1,93 @@
-.navbar {
+.listConteiner {
+    position: fixed;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    list-style: none;
-    gap: 30px;
-    margin: auto;
-    height: 50px;
-    padding: 0;  
-    overflow: hidden;
-    position: sticky;
-    top: 0; 
-    background-color: black; 
-    z-index: 9999;
+    flex-direction: column;
+    gap: 8%;
+    width: 100vw;
+    height: 100vh;
+    font-size: 60px;
+    list-style-type: none;
+    opacity: 0;
+    z-index: -1;
+    transition: 300ms;
+    margin: 0;
 
+    &.active {
+      opacity: 1;
+      background-color: rgba(253, 130, 130, 0.96);
+      z-index: 3;
+    }
 
-    &-logoConteiner {
-      width: 60px; 
-      
-      .navbar-logo {
-        width: 60px;
-        margin-left: 100px;
+    .list {
+      color: rgb(255, 255, 255);
+      font-weight: bolder;
+      text-decoration: none;        
+      z-index: 9000;
+      position: relative;
+      top: 150%;
+      left: 60%;
+      width: 10px;
+
+      &:hover{
+        color: red;
       }
-      
+
+    }
+}
+
+.hamburger  {
+  margin-right: 20px;
+  width: 70px;
+  height: 70px;
+  position: fixed;
+  right: 70px;
+  top: 50px;
+  z-index: 3;
+  cursor: pointer;
+
+  &.active {
+
+    .line {
+      background-color: #ebebeb;
+    }
+    
+    .line:nth-child(1) {
+      transform: translateY(22px) rotate(45deg);
+      width: 40px;
     }
 
-    &-listConteiner {
-        display: flex;
-        width: 600px;
-        font-size: 20px;
-       
-        .navbar-list {
-          color: white;
-          text-decoration: none;        
-          margin: 20px;
-
-        }
+    .line:nth-child(2) {
+      opacity : 0
     }
+
+    .line:nth-child(3) {
+      transform: translateY(-20px) rotate(-45deg);
+      width: 40px;  
+    }
+  }
+
+  .line {
+    width: 100%;
+    height: 8px;
+    background-color: #f14f4f;
+    position: absolute;
+    display: block;
+    right: 0;
+    transition: all 400ms;
+    border-radius: 10px;
+  }
+
+  & .line:nth-child(1) {
+    top: 20%;
+  }
+
+  & .line:nth-child(2) {
+    top: 50%;
+    width: 60%;
+    text-align: right;  }
+
+  & .line:nth-child(3) {
+    top:80%;
+    width: 40%;
+  }
 }

@@ -47,7 +47,9 @@ const About: React.FC = () => {
                 About me
             </h1>
             <p className='aboutContainer-presentation'>{presentation}</p>
-            <div className='parallax2'></div>
+            <div className='parallax2'>
+                
+            </div>
         </div>
     );
 };
