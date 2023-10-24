@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
-
+import { githubLink } from "../../assets/variables/variables"
 import {cards} from "../../assets/variables/variables"
+import Button from "../Button/Button"
 
 import "./Cards.scss"
  
@@ -71,7 +72,9 @@ const Cards: React.FC = () => {
                             {card.title}</h2>
                             <p className={`card-description`}>
                             {card.text}</p>
+                            <Button link = {githubLink[index].link} />
                         </div>
+
                         
                     </div>
                 ))}            

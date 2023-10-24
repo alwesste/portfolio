@@ -5,7 +5,6 @@
     &-title {
         text-align: center;
         margin-bottom: 100px;
-        font-size: 50px;
 
     }
 }
@@ -15,7 +14,7 @@
     flex-direction: column;
     margin: auto;    
     gap: 100px;
-    width: 1150px;   
+    width: 1000px;   
 }
 
 .card {
@@ -24,8 +23,8 @@
            
     &-Img {
         object-fit: cover;
-        height: 400px;
-        width: 400px;
+        height: 300px;
+        width: 300px;
         border-radius: 10px;
         box-shadow: 0 0 100px rgb(193, 192, 192);
         transform-style: preserve-3d;
@@ -44,11 +43,10 @@
     &-title {
         text-transform: uppercase;
         text-align: left;
-        font-size: 35px;
     }
 
     &-text {
-        font-size: 20px;
+        font-size: 18px;
     }
 }
 
@@ -64,4 +62,35 @@
     justify-content: space-between;
     align-items: center;
     text-align: end;
+}
+
+@media screen and (max-width: 1000px) {
+    .cardContainer {
+        width: 100%;
+    }
+
+    .card {
+        flex-direction: column;
+
+        &-Img {
+            margin-bottom: 30px;
+        }
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .card-description {
+        width: 90%;
+        display: flex;
+        margin: auto;    
+    }
+
+    .card-title {
+        margin-left: 15px;
+    }
+
+    .card-Img {
+        width: 70%;
+        height: 70%;
+    }
 }

@@ -5,10 +5,10 @@
     gap: 8%;
     width: 100vw;
     height: 100vh;
-    font-size: 60px;
+    font-size: 45px;
     list-style-type: none;
     opacity: 0;
-    z-index: -1;
+    z-index: -9;
     transition: 300ms;
     margin: 0;
 
@@ -24,7 +24,7 @@
       text-decoration: none;        
       z-index: 9000;
       position: relative;
-      top: 150%;
+      top: 180%;
       left: 60%;
       width: 10px;
 
