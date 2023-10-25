@@ -1,19 +1,85 @@
-    .aboutContainer {
+  .about {
     display: flex;
     flex-direction: column;
-    align-items : center;
+  }
 
-    &-title {
-        text-align: center;
+
+.aboutContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70vh;
+
+    &-aboutme {
+        margin-left: 30px;
+
+        p {
+            font-size: larger;
+            font-weight: bold;
+        }
+
+        &-name {
+            font-weight: bold;
+            font-size: 50px;
+
+        
+        }
     }
 
     &-presentation {
+        position: absolute;
+        margin: 10px;
         text-align: justify;    
-        width: 800px;    
-
+        width: 40%;  
+        max-width: 1000px;
+        opacity: 0;
+        transition: opacity 0.3s; /* La transition dure 0.3 secondes */
+    
+        &.visible {
+            opacity: 1;
+        }
     }
+
+    &-accroche {
+        font-size: 35px;
+        font-style: italic;
+        text-align: center;    
+        max-width: 800px;
+        width: 80%;
+        opacity: 1;
+        transition: opacity 0.3s;
+    
+        &.visible { 
+            opacity: 0;
+        }
+    }    
 }
-  
+
+.aboutContainer2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.comment {
+    display: flex;
+    font-style: italic;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    position: relative;
+    top: 15px;
+    width: 220px;
+    height: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.5s;
+    
+    &:hover {
+        background-color: rgb(255, 224, 224);        
+    }
+} 
 
 .ball {
     position: fixed;
@@ -50,7 +116,29 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url('../../assets/images/react-nodejs.webp');
-    height: 50vh;
+    height: 30vh;
     width: 100%;
     object-fit: cover;
+}
+
+@media screen and (max-width: 1000px) {
+
+    .aboutContainer{
+        flex-direction: column;
+    }
+
+    .aboutContainer-presentation, .comment{
+        display: none;
+    }
+
+    .aboutContainer-accroche {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .aboutContainer-accroche {
+        font-size: 20px;
+    }
 }

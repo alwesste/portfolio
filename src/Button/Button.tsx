@@ -1,6 +1,11 @@
 import "./Button.scss"
 
-const Button: React.FC = ({link}) => {
+interface ButtonProps {
+    link: string;
+  }
+
+
+const Button: React.FC<ButtonProps> = ({ link }) => {
 
     return (
        

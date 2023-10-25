@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { githubLink } from "../../assets/variables/variables"
 import {cards} from "../../assets/variables/variables"
-import Button from "../Button/Button"
+import Button from "../../Button/Button"
 
 import "./Cards.scss"
  
@@ -20,7 +20,7 @@ const Cards: React.FC = () => {
                             { transform: "translateY(0px)", opacity: 1 },
                         ],
                         {
-                            duration: 400
+                            duration: 500
                         }
                     );
                     observer.unobserve(entry.target);
@@ -42,8 +42,8 @@ const Cards: React.FC = () => {
                 const cardCenterX = rect.left + rect.width / 2;
                 const cardCenterY = rect.top + rect.height / 2;
                 
-                const xAxis = (e.clientX - cardCenterX) / 30;
-                const yAxis = (e.clientY - cardCenterY) / 30;
+                const xAxis = (e.clientX - cardCenterX) / 10;
+                const yAxis = (e.clientY - cardCenterY) / 10;
 
                 card.style.setProperty("--rotateX", -1 * yAxis + "deg");
                 card.style.setProperty("--rotateY", xAxis + "deg");            

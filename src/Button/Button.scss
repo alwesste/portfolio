@@ -18,7 +18,7 @@
         border-radius: 40px;
         background-color: rgb(255, 201, 201);
         position: absolute;
-        bottom: -21px;
+        bottom: -22px;
         left: -20px;
         z-index: -1;
         transition: width 0.3s, background-color 0.3s;
@@ -27,7 +27,7 @@
     
     &:hover::before {
           background-color: rgb(243, 176, 176);
-          width: 120%;
+          width: 125%;
     }
 
     &:active {

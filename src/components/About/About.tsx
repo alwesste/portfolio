@@ -1,10 +1,38 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { presentation } from '../../assets/variables/variables';
+import Typewriter from 'typewriter-effect/dist/core';
+
 import './About.scss';
 
 const About: React.FC = () => {
 
+    const p1Ref = useRef(null);
+    const p2Ref = useRef(null);
+    const [isVisible, setIsVisible] = useState(false)
+
+    const handleVisibility = () => {
+            setIsVisible(!isVisible)
+            console.log('ok')
+    }
+
+
     useEffect(() => {
+        
+        const p1 = p1Ref.current;
+        const p2 = p2Ref.current;
+
+
+        new Typewriter(p1, {})
+            .changeDelay(50)
+            .typeString('Développeur front-end')
+            .start();
+
+        new Typewriter(p2, {})
+            .changeDelay(30)
+            .typeString('Création moderne et responsive pour le web')
+            .start()
+            
+
         const ball = document.querySelector('.ball') as HTMLElement;
         
         document.addEventListener("mousemove", function(event) {
@@ -40,17 +68,32 @@ const About: React.FC = () => {
     }, []);
 
     return (
-        <div className='aboutContainer'>
-            <div className='ball' ></div>
-            <div className='parallax1'></div>
-            <h1 className='aboutContainer-title' id='about'>
-                About me
-            </h1>
-            <p className='aboutContainer-presentation'>{presentation}</p>
-            <div className='parallax2'>
-                
+        <div className='about'>
+
+            <div className='aboutContainer'>
+                <div className='ball' ></div>
+                {/* <div className='parallax2'></div> */}
+
+                <div className='aboutContainer' id='about'>
+                    <div className='aboutContainer-aboutme'>
+                        <h2 className='aboutContainer-aboutme-name'>Leopold Dagorn</h2>
+                        <p ref={p1Ref}></p>
+                        <p ref={p2Ref}></p>                       
+                        <h3 className='comment' onClick={handleVisibility}>Pour en savoir plus sur moi</h3>
+
+                    </div>  
+                                        
+                    <div className='aboutContainer2'>                    
+                    <p className={`aboutContainer-presentation ${isVisible ? 'visible' : ''}`}>{presentation}</p>
+                        <p className={`aboutContainer-accroche ${isVisible ? 'visible' : ''}`}>"En tant que développeur web passionné, je jongle avec les langages de programmation pour donner vie à des idées sur l'écran, chaque jour est une nouvelle aventure digitale."</p>
+                    </div>
+                </div>
+
             </div>
+
+            {/* <div className='parallax2'></div> */}
         </div>
+        
     );
 };
 
