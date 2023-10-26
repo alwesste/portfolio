@@ -6,10 +6,11 @@ import './About.scss';
 
 const About: React.FC = () => {
 
+   
+    const [isVisible, setIsVisible] = useState(false)
     const p1Ref = useRef(null);
     const p2Ref = useRef(null);
-    const [isVisible, setIsVisible] = useState(false)
-
+    
     const handleVisibility = () => {
             setIsVisible(!isVisible)
             console.log('ok')

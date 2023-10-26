@@ -1,15 +1,46 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { githubLink } from "../../assets/variables/variables"
-import {cards} from "../../assets/variables/variables"
+import { cardAPI } from '../utils/api';
 import Button from "../../Button/Button"
 
 import "./Cards.scss"
+
+type CardsData = {
+    id: number;
+    attributes: {
+      title: string;
+      image: {
+        url: string;
+      };
+      cardProject: string;
+    };
+  };
  
 
 const Cards: React.FC = () => {
 
+    const [cardsData, setCardsData] = useState<CardsData[]>([]);
+
+
     useEffect(() => {
 
+
+        const fetchData = async () => {
+            try {
+                const response = await cardAPI();
+                console.log(response)
+                if (response.success) {
+                    setCardsData(response.data.data);
+
+                } else {
+                    // Handle the case where the API call failed
+                }
+            } catch (error) {
+                // Handle any errors that occur during the API call
+            }
+        };
+
+        fetchData();
         let observer = new IntersectionObserver((entries) => {
             console.log(entries)
             for (const entry of entries) {
@@ -58,31 +89,28 @@ const Cards: React.FC = () => {
 
     
     return (
-        
         <section className="project" id="my-works">
-
-            <h1 className="project-title">My Works</h1>
-
-            <div className="cardContainer">
-                {cards.map((card, index) => (
+        <h1 className="project-title">My Works</h1>
+        <div className="cardContainer">
+            {cardsData.map((card, index) => {
+                console.log(card.attributes.image.data[0].attributes.url); // Ajoutez cette ligne pour le débogage
+                return (
                     <div className={`card ${index % 2 === 0 ? "card-even" : "card-odd"}`} key={index}>
-                        <img className="card-Img" src={card.img} alt={`Card ${index}`} />
+                        <img className="card-Img" src={`http://localhost:1337${card.attributes.image.data[0].attributes.url}`} alt={`Card ${index}`} />
                         <div className='card-text'>
                             <h2 className='card-title'>
-                            {card.title}</h2>
+                                {card.attributes.title}
+                            </h2>
                             <p className={`card-description`}>
-                            {card.text}</p>
-                            <Button link = {githubLink[index].link} />
+                                {card.attributes.cardProject}
+                            </p>
+                            <Button link={githubLink[index].link} />
                         </div>
-
-                        
                     </div>
-                ))}            
-            </div>
-           
-
-        </section>
-        
+                );
+            })}
+        </div>
+    </section>
     )
 }
 
