@@ -35,6 +35,40 @@
     }
 }
 
+// .button-appear {
+//     position: relative;
+//     text-decoration: none;
+//     color: black;
+//     font-weight: bold;
+//     z-index: 1;
+//     cursor: pointer;
+
+//     &::before {
+//         content: "";
+//         height: 70px;
+//         width: 70px;
+//         border-radius: 40px;
+//         background-color: rgb(216, 201, 255);
+//         position: absolute;
+//         bottom: -22px;
+//         left: -20px;
+//         z-index: -1;
+//         transition: width 0.3s, background-color 0.3s;
+   
+//     }
+    
+//     &:hover::before {
+//           background-color: rgb(241, 160, 255);
+//           width: 145%;
+//     }
+
+//     &:active {
+//         transform: scale(.95)
+//     }
+
+    
+// }
+
 
 @media screen and (max-width: 530px) {
     .button-container {

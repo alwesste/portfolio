@@ -33,12 +33,21 @@
             rotateX(var(--rotateX));
     }   
     
-    &-description {
-        width: 500px;
-        transition: opacity 1s;
-        text-align: justify;
+    @for $i from 0 through 8 {
+        .card-description#{$i} {
+            width: 500px;
+            transition: opacity 0.3s;
+            text-align: justify;
+    
+            &.visible {
+                opacity: 1;
+            }
+    
+            &.hidden {
+                opacity: 0;
+            }
+        }
     }
-
     &-title {
         text-transform: uppercase;
         text-align: left;
@@ -46,6 +55,11 @@
 
     &-text {
         font-size: 18px;
+    }
+
+    &-button-container {
+        display: flex;
+        justify-content: space-between;
     }
 }
 

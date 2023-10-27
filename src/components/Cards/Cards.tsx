@@ -24,6 +24,18 @@ const Cards: React.FC = () => {
 
     const [cardsData, setCardsData] = useState<CardsData[]>([]);
 
+    
+
+    const handleConsole = (index) => {
+        const description = document.querySelector(`.card-description${index}`);
+        if (description) {
+            if (description.style.opacity === '0') {
+                description.style.opacity = '1';
+            } else {
+                description.style.opacity = '0';
+            }
+        }
+    }
 
     useEffect(() => {
 
@@ -105,10 +117,13 @@ const Cards: React.FC = () => {
                             <h2 className='card-title'>
                                 {card.attributes.title}
                             </h2>
-                            <p className={`card-description`}>
+                            <p className={`card-description${index}`}>
                                 {card.attributes.cardProject} 
                             </p>
                             <Button link={card.attributes.githubLink} />
+                            <button className={`card-description-change ${index}`}
+                            onClick={()=> handleConsole(index)}
+                            >Voir les tech</button>
                         </div>
                     </div>
                 )
