@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { githubLink } from "../../assets/variables/variables"
 import { cardAPI } from '../utils/api';
-import Button from "../../Button/Button"
-
+import Button from "../Button/Button"
 import "./Cards.scss"
 
 type CardsData = {
     id: number;
     attributes: {
+      githubLink: string;
       title: string;
       image: {
-        url: string;
+        data: {
+            attributes: {
+                url: string;
+            }
+        }[];
       };
       cardProject: string;
     };
@@ -28,44 +31,46 @@ const Cards: React.FC = () => {
         const fetchData = async () => {
             try {
                 const response = await cardAPI();
-                console.log(response)
                 if (response.success) {
                     setCardsData(response.data.data);
 
                 } else {
-                    // Handle the case where the API call failed
+                    console.log('data unavailable')
                 }
             } catch (error) {
-                // Handle any errors that occur during the API call
-            }
+                console.error('Error fetching data:', error); 
+}
         };
 
-        fetchData();
-        let observer = new IntersectionObserver((entries) => {
-            console.log(entries)
-            for (const entry of entries) {
-                if (entry.isIntersecting) {
-                    entry.target.animate(
-                        [
-                            { transform: "translateY(50px)", opacity: 0 },
-                            { transform: "translateY(0px)", opacity: 1 },
-                        ],
-                        {
-                            duration: 500
-                        }
-                    );
-                    observer.unobserve(entry.target);
-                }
-            } 
-        },);
-        
-        const elementsToObserve = document.querySelectorAll('.card-text');
-        elementsToObserve.forEach((element) => {
-        observer.observe(element);
-        
-        });
-        
-        const tiltCards = document.querySelectorAll('.card-Img') as NodeListOf<HTMLDivElement>;
+        fetchData(); 
+                 
+    },[]);  
+
+    
+    let observer = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+            if (entry.isIntersecting) {
+                entry.target.animate(
+                    [
+                        { transform: "translateY(50px)", opacity: 0 },
+                        { transform: "translateY(0px)", opacity: 1 },
+                    ],
+                    {
+                        duration: 500
+                    }
+                );
+                observer.unobserve(entry.target);
+            }
+        } 
+    },);
+    
+    const elementsToObserve = document.querySelectorAll('.card-text');
+    elementsToObserve.forEach((element) => {
+    observer.observe(element);
+    
+    });
+
+    const tiltCards = document.querySelectorAll('.card-Img') as NodeListOf<HTMLDivElement>;
 
         tiltCards.forEach((card) => {
             card.addEventListener('mousemove', (e: MouseEvent) => {
@@ -84,31 +89,30 @@ const Cards: React.FC = () => {
                 card.style.removeProperty("--rotateX");
                 card.style.removeProperty("--rotateY");
             });
-        });          
-    },[]);    
+        }); 
 
-    
+
     return (
         <section className="project" id="my-works">
         <h1 className="project-title">My Works</h1>
         <div className="cardContainer">
-            {cardsData.map((card, index) => {
-                console.log(card.attributes.image.data[0].attributes.url); // Ajoutez cette ligne pour le débogage
-                return (
+            {cardsData.map((card, index) => (
                     <div className={`card ${index % 2 === 0 ? "card-even" : "card-odd"}`} key={index}>
-                        <img className="card-Img" src={`http://localhost:1337${card.attributes.image.data[0].attributes.url}`} alt={`Card ${index}`} />
+                        <img className="card-Img" 
+                            src={`http://localhost:1337${card.attributes.image.data[0].attributes.url}`} 
+                            alt={`Card ${index}`} />
                         <div className='card-text'>
                             <h2 className='card-title'>
                                 {card.attributes.title}
                             </h2>
                             <p className={`card-description`}>
-                                {card.attributes.cardProject}
+                                {card.attributes.cardProject} 
                             </p>
-                            <Button link={githubLink[index].link} />
+                            <Button link={card.attributes.githubLink} />
                         </div>
                     </div>
-                );
-            })}
+                )
+            )}
         </div>
     </section>
     )
