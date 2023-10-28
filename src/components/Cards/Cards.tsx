@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { cardAPI } from '../utils/api';
 import Button from "../Button/Button"
 import "./Cards.scss"
@@ -23,19 +23,25 @@ type CardsData = {
 const Cards: React.FC = () => {
 
     const [cardsData, setCardsData] = useState<CardsData[]>([]);
-
     
 
     const handleConsole = (index) => {
         const description = document.querySelector(`.card-description${index}`);
-        if (description) {
-            if (description.style.opacity === '0') {
-                description.style.opacity = '1';
-            } else {
-                description.style.opacity = '0';
-            }
+        const logo = document.querySelector(`.card-logo-container${index}`)
+
+        if (description.style.opacity === '0' && logo.style.opacity === '1') {
+            description.style.opacity = '1';
+            logo.style.opacity = '0'
+        } else {
+            description.style.opacity = '0';
+            logo.style.opacity = '1'
         }
+        
     }
+
+    const descriptionRef = useRef(null);
+
+    
 
     useEffect(() => {
 
@@ -104,33 +110,45 @@ const Cards: React.FC = () => {
         }); 
 
 
-    return (
-        <section className="project" id="my-works">
-        <h1 className="project-title">My Works</h1>
-        <div className="cardContainer">
-            {cardsData.map((card, index) => (
-                    <div className={`card ${index % 2 === 0 ? "card-even" : "card-odd"}`} key={index}>
-                        <img className="card-Img" 
-                            src={`http://localhost:1337${card.attributes.image.data[0].attributes.url}`} 
-                            alt={`Card ${index}`} />
-                        <div className='card-text'>
-                            <h2 className='card-title'>
-                                {card.attributes.title}
-                            </h2>
-                            <p className={`card-description${index}`}>
-                                {card.attributes.cardProject} 
-                            </p>
-                            <Button link={card.attributes.githubLink} />
-                            <button className={`card-description-change ${index}`}
-                            onClick={()=> handleConsole(index)}
-                            >Voir les tech</button>
+        return (
+            <section className="project" id="my-works">
+                <h1 className="project-title">My Works</h1>
+                <div className="cardContainer">
+                    {cardsData.map((card, index) => (
+                        <div className={`card ${index % 2 === 0 ? "card-even" : "card-odd"}`} key={index}>
+                            <img className="card-Img" 
+                                src={`http://localhost:1337${card.attributes.image.data[0].attributes.url}`} 
+                                alt={`Card ${index}`} />
+                            <div className='card-text'>
+                                <h2 className='card-title'>
+                                    {card.attributes.title}
+                                </h2>
+                                <p ref={descriptionRef} className={`card-description${index}`}>
+                                    {card.attributes.cardProject} 
+                                </p>
+                                <div className={`card-logo-container${index}`}>
+                                    {card.attributes.logo.data.map((logo, logoIndex) => (
+                                    <img
+                                        key={logoIndex}
+                                        className='logo'
+                                        src={`http://localhost:1337${logo.attributes.url}`}
+                                        alt={`Logo ${logoIndex}`}
+                                    />
+                                ))}
+                                </div>
+                                <div className='card-button'>
+                                    <Button link={card.attributes.githubLink} />
+                                    <Button appear={true} className={`card-description-change ${index}`}
+                                        onClick={() => handleConsole(index)}/>
+                                </div>
+                                
+                            </div>
                         </div>
-                    </div>
-                )
-            )}
-        </div>
-    </section>
-    )
+                    ))}
+                </div>
+            </section>
+        );
+        
 }
 
 export default Cards
