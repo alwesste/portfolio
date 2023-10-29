@@ -3,19 +3,27 @@ import { cardAPI } from '../utils/api';
 import Button from "../Button/Button"
 import "./Cards.scss"
 
-type CardsData = {
+interface CardsData {
     id: number;
     attributes: {
       githubLink: string;
       title: string;
+      cardProject: string;
       image: {
         data: {
             attributes: {
                 url: string;
             }
         }[];
-      };
-      cardProject: string;
+     };
+    
+      logo: {
+        data: {
+          attributes: {
+              url: string;
+            };
+        }[];
+    };  
     };
   };
  
@@ -25,18 +33,19 @@ const Cards: React.FC = () => {
     const [cardsData, setCardsData] = useState<CardsData[]>([]);
     
 
-    const handleConsole = (index) => {
-        const description = document.querySelector(`.card-description${index}`);
-        const logo = document.querySelector(`.card-logo-container${index}`)
+    const handleConsole = (index: number) => {
+        const description = document.querySelector(`.card-description${index}`) as HTMLElement | null;
+        const logo = document.querySelector(`.card-logo-container${index}`) as HTMLElement | null;
 
-        if (description.style.opacity === '0' && logo.style.opacity === '1') {
+        if (description?.style?.opacity === '0' && logo?.style?.opacity === '1') {
             description.style.opacity = '1';
             logo.style.opacity = '0'
         } else {
-            description.style.opacity = '0';
-            logo.style.opacity = '1'
+            description?.style.setProperty('opacity', '0');
+            logo?.style.setProperty('opacity', '1');
+
         }
-        
+    
     }
 
     const descriptionRef = useRef(null);
@@ -127,7 +136,7 @@ const Cards: React.FC = () => {
                                     {card.attributes.cardProject} 
                                 </p>
                                 <div className={`card-logo-container${index}`}>
-                                    {card.attributes.logo.data.map((logo, logoIndex) => (
+                                    {card.attributes.logo.data.map((logo, logoIndex: number) => (
                                     <img
                                         key={logoIndex}
                                         className='logo'
