@@ -73,8 +73,6 @@ const About: React.FC = () => {
 
             <div className='aboutContainer'>
                 <div className='ball' ></div>
-                {/* <div className='parallax2'></div> */}
-
                 <div className='aboutContainer' id='about'>
                     <div className='aboutContainer-aboutme'>
                         <h2 className='aboutContainer-aboutme-name'>Leopold Dagorn</h2>
@@ -91,8 +89,6 @@ const About: React.FC = () => {
                 </div>
 
             </div>
-
-            {/* <div className='parallax2'></div> */}
         </div>
         
     );

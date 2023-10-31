@@ -5,13 +5,15 @@ import Cards from './components/Cards/Cards';
 import About from './components/About/About';
 import Skills from './components/Skills/Skills';
 
+
+
 function App() {
   return (
     <>
         <Navbar />
         <About />
         <Cards /> 
-        <Skills    />    
+        <Skills />    
         <Contact />
         <Footer />
     </>
