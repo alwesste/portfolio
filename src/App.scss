@@ -4,8 +4,10 @@ body  {
     margin: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    overflow-anchor: none;
 }
-
+// *{    border: blue solid 1px;
+// }
 html {
     scroll-behavior: smooth;
 }
@@ -29,4 +31,15 @@ h2 {
     h2 {
         font-size: 22px;
     }
+}
+
+.dark-mode {
+    background-color: rgb(34, 49, 70);
+    color: rgb(233, 233, 233);
+}
+
+/* Styles pour le thème clair (par défaut) */
+.light-mode {
+    background-color: rgb(255, 255, 255);
+    color: black;
 }

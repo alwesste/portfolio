@@ -1,32 +1,71 @@
-import "./Contact.scss"
+import React, { useState } from 'react';
+import "./Contact.scss";
 
 const Contact: React.FC = () => {
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        message: ""
+    });
 
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    }
+
+    const recipientEmail = "patate@gmail.com";
+
+    const handleFormSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        window.location.href = `mailto:${recipientEmail}?subject=Contact&body=${formData.message}`;
+    }
 
     return (
-
         <section className="contact">
-
             <h1 className="contact-title" id="contact">Contact</h1>
+            <form className="form" onSubmit={handleFormSubmit}>
+                <label htmlFor="name">Name</label>
+                <input
+                    className="form-name"
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="Name"
+                    required
+                    onChange={handleInputChange}
+                />
 
-            <form className="form" action="get">
+                <label htmlFor="email">Email</label>
+                <input
+                    className="form-email"
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Email"
+                    required
+                    value={formData.email}
+                    onChange={handleInputChange}
+                />
 
-                <label htmlFor="name"></label>
-                <input className="form-name" type="name" name="name" id="name" placeholder="Name" required/>
-
-                <label htmlFor="email"></label>
-                <input className="form-email" type="email" name="email" id="email" placeholder="Email" required/>
-
-                
-                <label htmlFor="message"></label>
-                <textarea className="form-message" name="message" id="message" rows={7} placeholder="Ecrivez votre message" required></textarea>
+                <label htmlFor="message">Message</label>
+                <textarea
+                    className="form-message"
+                    name="message"
+                    id="message"
+                    rows={7}
+                    placeholder="Ecrivez votre message"
+                    required
+                    value={formData.message}
+                    onChange={handleInputChange}
+                />
 
                 <button className="form-button" type="submit">Send</button>
             </form>
         </section>
-
-        
     )
 }
 
-export default Contact
+export default Contact;

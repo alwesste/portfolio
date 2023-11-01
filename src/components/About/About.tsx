@@ -1,10 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { presentation } from '../../assets/variables/variables';
+import { useTheme } from '../utils/ThemeContext';
 import Typewriter from 'typewriter-effect/dist/core';
 
 import './About.scss';
 
 const About: React.FC = () => {
+
+    const {isDarkMode} = useTheme()
 
    
     const [isVisible, setIsVisible] = useState(false)
@@ -78,7 +81,7 @@ const About: React.FC = () => {
                         <h2 className='aboutContainer-aboutme-name'>Leopold Dagorn</h2>
                         <p ref={p1Ref}></p>
                         <p ref={p2Ref}></p>                       
-                        <h3 className='comment' onClick={handleVisibility}>Pour en savoir plus sur moi</h3>
+                        <h3 className={`comment ${isDarkMode && 'dark-comment' }`} onClick={handleVisibility}>Pour en savoir plus sur moi</h3>
 
                     </div>  
                                         

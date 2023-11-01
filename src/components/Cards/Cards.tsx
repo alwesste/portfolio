@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { cardAPI } from '../utils/api';
-import Button from "../Button/Button"
+import Button from "../Button/Button";
+import { useTheme } from '../utils/ThemeContext';
 import "./Cards.scss"
 
 interface CardsData {
@@ -31,7 +32,8 @@ interface CardsData {
 const Cards: React.FC = () => {
 
     const [cardsData, setCardsData] = useState<CardsData[]>([]);
-    
+    const {isDarkMode} = useTheme()
+
 
     const handleConsole = (index: number) => {
         const description = document.querySelector(`.card-description${index}`) as HTMLElement | null;
@@ -49,8 +51,6 @@ const Cards: React.FC = () => {
     }
 
     const descriptionRef = useRef(null);
-
-    
 
     useEffect(() => {
 
@@ -125,10 +125,10 @@ const Cards: React.FC = () => {
                 <div className="cardContainer">
                     {cardsData.map((card, index) => (
                         <div className={`card ${index % 2 === 0 ? "card-even" : "card-odd"}`} key={index}>
-                            <img className="card-Img" 
+                            <img className={`card-Img ${isDarkMode ? 'low-box-shadow' : ''}`}
                                 src={`http://localhost:1337${card.attributes.image.data[0].attributes.url}`} 
                                 alt={`Card ${index}`} />
-                            <div className='card-text'>
+                        <div className={`card-text ${isDarkMode ? 'light-text' : 'dark-text'}`}>
                                 <h2 className='card-title'>
                                     {card.attributes.title}
                                 </h2>
@@ -147,7 +147,7 @@ const Cards: React.FC = () => {
                                 </div>
                                 <div className='card-button'>
                                     <Button link={card.attributes.githubLink} />
-                                    <Button appear={true} className={`card-description-change ${index}`}
+                                    <Button appear={true} className={`card-description-change ${index} ${isDarkMode ? 'light-text' : 'dark-text' }`}
                                         onClick={() => handleConsole(index)}/>
                                 </div>
                                 

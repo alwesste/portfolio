@@ -35,6 +35,23 @@
     }
 }
 
+.dark-text {
+    color: black;
+}
+
+.light-text {
+    color: rgb(233, 233, 233);
+
+    &::before {
+        background-color: rgb(203, 75, 75);
+
+    }
+    &:hover::before {
+        background-color: rgb(255, 18, 18);
+        width: 125%;
+    }
+}
+
 
 @media screen and (max-width: 530px) {
     .button-container {

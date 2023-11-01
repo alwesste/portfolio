@@ -1,5 +1,4 @@
 .project {
-    background-color: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
     &-title {
@@ -87,7 +86,7 @@
         height: 70px;
         width: 70px;
         border-radius: 40px;
-        background-color: rgb(216, 201, 255);
+        background-color: rgb(195, 171, 255);
         position: absolute;
         bottom: -22px;
         left: -20px;
@@ -104,6 +103,20 @@
         transform: scale(.95)
     }   
 }
+
+.dark-text {
+    color: black;
+}
+
+.light-text {
+    color: rgb(233, 233, 233);
+
+    
+}
+.low-box-shadow {
+    box-shadow: 0 0 50px rgb(115, 115, 115);
+}
+
 @for $i from 0 through 10 {
 
     .card-logo-container#{$i} {
@@ -135,13 +148,25 @@
             margin-bottom: 30px;
         }
     }
+
+    .card-button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 530px) {
-    .card-description {
-        width: 90%;
-        display: flex;
-        margin: auto;    
+    .card-text {
+        width: 80%;
+    }
+
+    @for $i from 0 through 10 {
+        .card .card-description#{$i} {
+            width: 80%;
+            margin:auto;
+        }
     }
 
     .card-title {

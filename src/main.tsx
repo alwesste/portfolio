@@ -1,17 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App.tsx';
-import "./app.scss";
 import { ThemeProvider } from './components/utils/ThemeContext.tsx';
 
+const rootElement = document.getElementById('root');
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
     <ThemeProvider>
       <App />
     </ThemeProvider>
   </React.StrictMode>
 );
+
 
 // import React from 'react';
 // import ReactDOM from 'react-dom';

@@ -1,7 +1,7 @@
-  .about {
+.about {
     display: flex;
     flex-direction: column;
-  }
+}
 
 
 .aboutContainer {
@@ -75,7 +75,14 @@
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.5s;
-    
+
+    &.dark-comment { 
+        
+        &:hover {
+            background-color: rgb(242, 92, 92);        
+        }
+
+    }
     &:hover {
         background-color: rgb(255, 224, 224);        
     }

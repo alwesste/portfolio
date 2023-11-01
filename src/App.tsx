@@ -4,20 +4,22 @@ import Footer from './components/Footer/footer';
 import Cards from './components/Cards/Cards';
 import About from './components/About/About';
 import Skills from './components/Skills/Skills';
-
-
+import { useTheme } from './components/utils/ThemeContext';
+import './App.scss'; // Importez votre fichier de styles
 
 function App() {
+  const { isDarkMode } = useTheme();
+
   return (
-    <>
-        <Navbar />
-        <About />
-        <Cards /> 
-        <Skills />    
-        <Contact />
-        <Footer />
-    </>
-  )
+    <div className={`App ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+      <Navbar />
+      <About />
+      <Cards />
+      <Skills />
+      <Contact />
+      <Footer />
+    </div>
+  );
 }
 
-export default App
+export default App;
