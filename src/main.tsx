@@ -1,27 +1,23 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom/client';
-// import App from './App.tsx';
-// import { ThemeProvider } from './components/utils/ThemeContext.tsx';
-
-// const rootElement = document.getElementById('root');
-
-// if (rootElement) {
-//   ReactDOM.createRoot(rootElement).render(
-//     <React.StrictMode>
-//       <ThemeProvider>
-//         <App />
-//       </ThemeProvider>
-//     </React.StrictMode>
-//   );
-// } else {
-//   console.error("Element with ID 'root' not found in the DOM.");
-// }
-
-
 import React from 'react';
-// import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom';
 import App from './App.tsx';
 import { ThemeProvider } from './components/utils/ThemeContext.tsx';
+
+const rootElement = document.getElementById('root');
+
+ReactDOM.createRoot(rootElement).render(
+  <React.StrictMode>
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
+  </React.StrictMode>
+);
+
+
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+// import App from './App.tsx';
+// import { ThemeProvider } from './components/utils/ThemeContext.tsx';
 
 
 // ReactDOM.render(
@@ -32,14 +28,3 @@ import { ThemeProvider } from './components/utils/ThemeContext.tsx';
 //   </React.StrictMode>,
 //   document.getElementById('root')
 // );
-
-import { createRoot } from 'react-dom/client';
-
-const root = createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
-  </React.StrictMode>
-);
