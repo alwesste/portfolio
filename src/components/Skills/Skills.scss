@@ -4,31 +4,167 @@
     margin-top: 100px;
     align-items: center;
 
+    &-skill-list li {
+        line-height: 30px;
+        font-size: larger;
+        opacity: 0;
+
+        &:hover {
+            color: rgb(203, 75, 75);
+            font-weight: bold;        
+            cursor: pointer;
+
+        }
+    }
+
+    &-group {
+        display: flex;
+        align-items: center;
+    }
+
     &-title2 {
         text-align: left;
-        width: 80%;
+        width: 1000px;
     }
 
     &-logo {
        display: flex;
        flex-wrap: wrap;
        justify-content: center;
+       max-width: 800px;
+       border-right: solid grey 1px;
 
        &-img {
         height: 100px;
         width: 100px;
-        margin: 40px;
         object-fit: contain;
-        transition: filter 0.4s;
-
-        &:hover {
-            filter: brightness(1.2); 
-        }
         }
     }
 
+    &-title {
+        text-align: center;
+    }
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 80px;
+    height: 80px;
+    perspective: 1000px;
+    margin: 30px;
+    opacity: 0;
+    
+    &-front {
+        color: black;
+    }
+
+    &-back {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        transform: rotateY(180deg);
+        font-weight: bold;
+        border-radius: 100px;
+
+        &-light {
+            background-color: aliceblue; 
+        }
+    }
+
+    &-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+        border-radius: 100px;
+    }
+
+    &:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+  
+    &-front, &-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+}
+
+.parallaxSkill {
+    background-image: url("../../assets/images/fondCouleur.jpg");
+    min-height: 30vh; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    margin-top: 30px;;
+}
+
+.resume {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
     &-title {
         text-align: center;
+    }
+
+    &-paragraph {
+        font-size: 20px;
+        font-weight: bold;
+        color: #f14f4f;
+    }
+}
+
+.CV {
+    border: solid 2px black;
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: black;
+    text-decoration: none;
+    transition: background-color 0.3s, border 0.1s;
+    margin-left: 20px;
+
+    &.light {
+        color: white;
+        border: solid 2px white;
+
+
+        &:hover {
+            background-color: darkgrey;
+        }
+    }
+
+    &:hover {
+        background-color: rgb(13, 11, 11);
+        border: 2px black solid;
+        color:aliceblue;
+        font-weight: bold;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .container-logo {
+        max-width: 80%;
+        border: none;
+        margin-bottom: 30px;
+    }
+
+    .container-title2 {
+        text-align: center;
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+    .container-group {
+        display: flex;
+        flex-direction: column;
     }
 }

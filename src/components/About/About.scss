@@ -21,8 +21,6 @@
         &-name {
             font-weight: bold;
             font-size: 50px;
-
-        
         }
     }
 
@@ -33,7 +31,7 @@
         width: 40%;  
         max-width: 600px;
         opacity: 0;
-        transition: opacity 0.3s; /* La transition dure 0.3 secondes */
+        transition: opacity 0.3s;
     
         &.visible {
             opacity: 1;
@@ -75,16 +73,24 @@
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.5s;
+    transition: transform 0.2s;
 
     &.dark-comment { 
         
         &:hover {
-            background-color: rgb(242, 92, 92);        
+            background-color: rgb(242, 92, 92);   
         }
 
+        &:active {
+            transform: scale(.95)
+        }
     }
     &:hover {
         background-color: rgb(255, 224, 224);        
+    }
+
+    &:active {
+        transform: scale(.95)
     }
 } 
 
@@ -103,29 +109,15 @@
     transition: opacity 1.5s;
 }
 
-.parallax1 {
-    overflow-x: hidden;
+.parallax {
+    background-image: url("../../assets/images/fond.jpg");
+    min-height: 30vh; 
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url('../../assets/images/frontEnd.jpg');
-    height: 50vh;
-    width: 100%;
-    object-fit: cover;
-    
-}
-
-.parallax2 {
-    overflow-x: hidden;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url('../../assets/images/react-nodejs.webp');
-    height: 30vh;
-    width: 100%;
-    object-fit: cover;
+    width: 100vw;
+    margin-top: 30px;
 }
 
 @media screen and (max-width: 1000px) {

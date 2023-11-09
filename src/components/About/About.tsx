@@ -89,9 +89,13 @@ const About: React.FC = () => {
                     <p className={`aboutContainer-presentation ${isVisible ? 'visible' : ''}`}>{presentation}</p>
                         <p className={`aboutContainer-accroche ${isVisible ? 'visible' : ''}`}>"En tant que développeur web passionné, je jongle avec les langages de programmation pour donner vie à des idées sur l'écran, chaque jour est une nouvelle aventure digitale."</p>
                     </div>
+
                 </div>
 
-            </div>
+            </div> 
+            
+            <div className="parallax"></div>    
+
         </div>
         
     );
