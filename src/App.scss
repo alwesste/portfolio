@@ -4,10 +4,22 @@ body  {
     margin: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    overflow-anchor: none;
+    overflow-x: hidden;
+    // overflow-anchor: none;
 }
+
+body::-webkit-scrollbar {
+    width: 10px; 
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color:#f14f4f;
+    border-radius: 10px;
+}
+
 // *{    border: blue solid 1px;
 // }
+
 html {
     scroll-behavior: smooth;
 }
@@ -34,7 +46,7 @@ h2 {
 }
 
 .dark-mode {
-    background-color: rgb(34, 49, 70);
+    background-color: rgb(34, 39, 46);
     color: rgb(233, 233, 233);
 }
 

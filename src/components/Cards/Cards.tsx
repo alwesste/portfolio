@@ -75,7 +75,7 @@ const Cards: React.FC = () => {
 
     
     let observer = new IntersectionObserver((entries) => {
-        for (const entry of entries) {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 entry.target.animate(
                     [
@@ -85,18 +85,26 @@ const Cards: React.FC = () => {
                     {
                         duration: 500
                     }
-                );
+                ).onfinish = () => {
+                   (entry.target as HTMLElement).style.opacity = "1";
+                }
+                ;
                 observer.unobserve(entry.target);
             }
-        } 
-    },);
+        });
+    });
     
     const elementsToObserve = document.querySelectorAll('.card-text');
-    elementsToObserve.forEach((element) => {
-    observer.observe(element);
+    const elementsToObserve2 = document.querySelectorAll('.card-Img');
     
+    elementsToObserve.forEach((element) => {
+        observer.observe(element);
     });
-
+    
+    elementsToObserve2.forEach((element) => {
+        observer.observe(element);
+    });
+    
     const tiltCards = document.querySelectorAll('.card-Img') as NodeListOf<HTMLDivElement>;
 
         tiltCards.forEach((card) => {
@@ -105,8 +113,8 @@ const Cards: React.FC = () => {
                 const cardCenterX = rect.left + rect.width / 2;
                 const cardCenterY = rect.top + rect.height / 2;
                 
-                const xAxis = (e.clientX - cardCenterX) / 10;
-                const yAxis = (e.clientY - cardCenterY) / 10;
+                const xAxis = (e.clientX - cardCenterX) / 5;
+                const yAxis = (e.clientY - cardCenterY) / 5;
 
                 card.style.setProperty("--rotateX", -1 * yAxis + "deg");
                 card.style.setProperty("--rotateY", xAxis + "deg");            

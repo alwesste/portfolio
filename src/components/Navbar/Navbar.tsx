@@ -18,10 +18,10 @@ const Navbar: React.FC = () => {
           <li><a className='list' href="#my-works">My Works</a></li>
           <li><a className='list' href="#competences">Skill</a></li>
           <li><a className='list' href="#contact">Contact</a></li>          
-          <li><a className='list' href="#CV">Resume</a></li>   
-          <button className='list-btn' onClick={toggleTheme}>
-              Changer en mode {isDarkMode ? "sombre" : "clair"}
-          </button>     
+          <li><a className='list' href="#resume">Resume</a></li>     
+          <div onClick={toggleTheme} className={`lightMode ${isDarkMode ? 'lightdark-mode' : ''}`}>
+            {isDarkMode ? <i className="fa-regular fa-lightbulb"></i> : <i className="fa-regular fa-moon"></i>}
+          </div>   
       </ul>
 
       <div className={`hamburger ${isMenuOpen && 'active' }`} onClick={toggleMenu}>
@@ -29,7 +29,7 @@ const Navbar: React.FC = () => {
         <span className="line"></span>
         <span className="line"></span>
       </div>
-      
+     
     </>
   );
 };

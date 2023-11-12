@@ -32,6 +32,7 @@
         border-radius: 10px;
         box-shadow: 0 0 100px rgb(193, 192, 192);
         transform-style: preserve-3d;
+        opacity: 0;
         transform: 
             perspective(5000px)
             rotateY(var(--rotateY))
@@ -55,6 +56,7 @@
     &-text {
         font-size: 18px;
         position: relative;
+        opacity: 0;
     }
 }
 
@@ -114,7 +116,7 @@
     
 }
 .low-box-shadow {
-    box-shadow: 0 0 50px rgb(115, 115, 115);
+    box-shadow: 0 0 10px rgb(115, 115, 115);
 }
 
 @for $i from 0 through 10 {
@@ -162,10 +164,16 @@
         width: 80%;
     }
 
+    
+
     @for $i from 0 through 10 {
         .card .card-description#{$i} {
             width: 80%;
             margin:auto;
+        }
+        
+        .card-logo-container#{$i} {
+            width : 100%
         }
     }
 
