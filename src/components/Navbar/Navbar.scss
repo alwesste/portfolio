@@ -1,4 +1,4 @@
-.listConteiner {
+.listContainer {
     position: fixed;
     right: 0px;
     display: flex;
@@ -38,15 +38,13 @@
     }
 }
 
-
-
 .lightMode {
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
-  right: 7%;
-  top: 80%;  
+  right: 8%;
+  top: 75vh;  
   border: 2px solid;
   border-radius: 10px;
   padding: 20px;
@@ -74,10 +72,6 @@
   background-color: #ff5151;
   }
 }
-
-
-  
-
 
 .hamburger  {
   width: 70px;
@@ -142,11 +136,11 @@
 
 @media screen and (max-width: 1000px) 
 {
-    .listConteiner {
-      font-size: 35px;
+    .listContainer {
+      font-size: 20px;
 
       .list{
-        left: 30%;
+        left: -20px;
       }
       
       .list-btn {
@@ -163,8 +157,10 @@
 
 @media screen and (max-width: 800px) {
 
-  .listConteiner .list {
-    left: 20%;
+  .listContainer .list {
+    right: 60px;  
+    font-size: 15px;
+  
   }
 
 }
@@ -175,8 +171,8 @@
     position: fixed;
     top: 20px;
     right: 10%;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
 
     &.active {
 
@@ -198,9 +194,21 @@
         width: 40px;  
       }
     }
+
+    .line {
+      height: 5px;
+    }
   }
 
-  .listConteiner {
+  .listContainer {
+    gap: 2%;
+
+    .list {
+      position: relative;
+      font-size: 15px;
+      top: 100px;
+      right: 20px;
+    }
     
     .list-btn {
       top: 80%;
