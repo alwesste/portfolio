@@ -1,23 +1,30 @@
 .footer {
     display: flex;
-    padding-top: 50px;
     justify-content: center;   
     align-items:center;
-    height: 200px;
+    height: 80px;
     width: 100%;
-    background-color: rgb(34,39,46);
-    color: rgb(193, 192, 192);
+    background-color: rgb(182, 185, 190);
+    color: rgb(0, 0, 0);
+    margin-top: 20px;
 
     p {
         display: flex;
         align-items: center;
-        font-size: 25px;
+        font-size: 15px;
         font-weight: bold;
     }
 
     &-logo {
-        height: 80px;
-        margin-bottom: 10px;
+        height: 40px;
+        margin: 20px;
+        color: wheat;
+
     }
 
+}
+
+.darkmode {
+    background-color: rgb(34, 39, 46);
+    color: rgb(238, 238, 238);
 }

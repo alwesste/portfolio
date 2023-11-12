@@ -59,7 +59,7 @@ const {isDarkMode} = useTheme()
               }
             ).onfinish = () => {
               (entry.target as HTMLElement).style.opacity = "1";
-              observer2.unobserve(entry.target); // Arrête d'observer l'élément une fois l'animation terminée
+              observer2.unobserve(entry.target);
             };
           }
         });
@@ -69,7 +69,7 @@ const {isDarkMode} = useTheme()
         observer2.observe(element);
       });
 
-
+      const resumeParagraph = document.querySelector(".resume-paragraph")as HTMLElement | null;
       const logoElements = document.querySelectorAll('.flip-card');
 
       const observer = new IntersectionObserver((entries) => {
@@ -93,10 +93,43 @@ const {isDarkMode} = useTheme()
         });
       });
 
+      if (resumeParagraph) {
+        observer.observe(resumeParagraph);
+      }      
+      
       logoElements.forEach((element) => {
         observer.observe(element);
       });
     };
+
+    const myCV = document.querySelector(".CV") as HTMLElement | null
+    const observer3 = new IntersectionObserver((entries) => {
+      entries.forEach((entry)=> {
+        setTimeout(() => {
+          if (entry.isIntersecting) {
+          entry.target.animate(
+            [
+              { transform: "scale(0.2)", opacity: 0 },
+              { transform: "scale(1)", opacity: 1 },
+            ],
+            {
+              duration: 500,
+            }
+          ).onfinish = () => {
+            (entry.target as HTMLElement).style.opacity = "1";
+            observer3.unobserve(entry.target);
+          };
+        }  
+        }, 500);
+      
+      });
+    })
+
+    if (myCV) {
+      observer3.observe(myCV)
+    }
+    
+
 
     observeLogoElements();
 

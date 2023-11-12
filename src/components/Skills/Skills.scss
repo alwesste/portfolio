@@ -35,8 +35,8 @@
        border-right: solid grey 1px;
 
        &-img {
-        height: 100px;
-        width: 100px;
+        height: 80px;
+        width: 80px;
         object-fit: contain;
         }
     }
@@ -96,7 +96,7 @@
 }
 
 .parallaxSkill {
-    background-image: url("../../assets/images/fondCouleur.jpg");
+    background-image: url("../../assets/images/fond.jpg");
     min-height: 30vh; 
     background-attachment: fixed;
     background-position: center;
@@ -111,30 +111,45 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: black;
 
     &-title {
         text-align: center;
+        color: black;
     }
 
     &-paragraph {
-        font-size: 20px;
-        font-weight: bold;
-        color: #f14f4f;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-size: 25px;
+        font-weight: bolder;
+        color: black;
     }
 }
 
 .CV {
+    display: block;
     border: solid 2px black;
     border-radius: 20px;
     padding: 10px 20px;
-    color: black;
     text-decoration: none;
-    transition: background-color 0.3s, border 0.1s;
-    margin-left: 20px;
+    opacity: 0;
+    text-align: center;    
+    width: 150px;
+    margin-top: 30px;
+    transition: background-color 0.4s;
+    color: black;
+    font-weight: bold;
+
+    &:active {
+        transform: scale(0.95);
+    }
 
     &.light {
-        color: white;
-        border: solid 2px white;
+        color: black;
+        border: solid 2px black;
 
 
         &:hover {

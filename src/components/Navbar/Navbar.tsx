@@ -13,7 +13,7 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <ul className={`listConteiner ${isMenuOpen ? 'active' : ''} ${isDarkMode ? 'dark-mode' : ''}`} onClick={toggleMenu}>
+      <ul className={`listContainer ${isMenuOpen ? 'active' : ''} ${isDarkMode ? 'dark-mode' : ''}`} onClick={toggleMenu}>
           <li><a className='list' href="#about">About</a></li>
           <li><a className='list' href="#my-works">My Works</a></li>
           <li><a className='list' href="#competences">Skill</a></li>
