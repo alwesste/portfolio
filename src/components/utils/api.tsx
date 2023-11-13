@@ -1,6 +1,6 @@
 export const cardAPI = async () => {
     try {
-        const response = await fetch('http://localhost:1337/api/cards?populate=*', {
+        const response = await fetch('http://35.180.255.7:1337/api/cards?populate=*', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -22,7 +22,7 @@ export const cardAPI = async () => {
 export const logoAPI = async () => {
 
     try {
-        const response = await fetch ('http://localhost:1337/api/logos?populate=*', {
+        const response = await fetch ('http://35.180.255.7:1337/api/logos?populate=*', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',       
@@ -42,6 +42,3 @@ export const logoAPI = async () => {
         throw error
     }
 }
-
-
-// ca va
