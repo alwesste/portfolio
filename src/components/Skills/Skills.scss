@@ -96,14 +96,14 @@
 }
 
 .parallaxSkill {
-    background-image: url("../../assets/images/fond.jpg");
+    background-image: url("../../assets/images/fondSombre.avif");
     min-height: 30vh; 
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100vw;
-    margin-top: 30px;;
+    margin-top: 70px;;
 }
 
 .resume {
@@ -111,11 +111,10 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: black;
 
     &-title {
         text-align: center;
-        color: black;
+        color: white;
     }
 
     &-paragraph {
@@ -125,7 +124,7 @@
         flex-direction: column;
         font-size: 25px;
         font-weight: bolder;
-        color: black;
+        color: white;
     }
 }
 
@@ -140,7 +139,7 @@
     width: 150px;
     margin-top: 30px;
     transition: background-color 0.4s;
-    color: black;
+    color: white;
     font-weight: bold;
 
     &:active {
