@@ -149,7 +149,7 @@ const {isDarkMode} = useTheme()
                           <div className="flip-card-front">
                             <img
                                 className="container-logo-img"
-                                src={`https://35.180.255.7:1337/${logo.attributes.logo.data[0].attributes.url}`}
+                                src={`http://localhost:1337${logo.attributes.logo.data[0].attributes.url}`}
                                 alt={`technologie ${logo.attributes.logo.data[0].attributes.url}`}
                             />
                           </div>   
