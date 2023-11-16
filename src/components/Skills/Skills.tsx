@@ -149,7 +149,7 @@ const {isDarkMode} = useTheme()
                           <div className="flip-card-front">
                             <img
                                 className="container-logo-img"
-                                src={`https://174.129.175.245:1337${logo.attributes.logo.data[0].attributes.url}`}
+                                src={`https://portfolio-leopold.vercel.app:1337${logo.attributes.logo.data[0].attributes.url}`}
                                 alt={`technologie ${logo.attributes.logo.data[0].attributes.url}`}
                             />
                           </div>   
