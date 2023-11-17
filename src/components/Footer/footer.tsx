@@ -50,9 +50,9 @@ const Footer: React.FC = () => {
         <>
             <div className={`footer ${isDarkMode && 'darkmode'}`}>
                 <p>Mady with 
-                    <img className="footer-logo" src={`http://54.173.204.182:1337${viteUrl}`} alt="logo of vite" />
+                    <img className="footer-logo" src={`http://54.172.222.113:1337${viteUrl}`} alt="logo of vite" />
                     and hosted on 
-                    <img className="footer-logo" src={`http://54.173.204.182:1337${awsUrl}`} alt="logo of AWS" />
+                    <img className="footer-logo" src={`http://54.172.222.113:1337${awsUrl}`} alt="logo of AWS" />
                 </p>
             </div>
         </>
