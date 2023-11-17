@@ -1,6 +1,6 @@
 export const cardAPI = async () => {
     try {
-        const response = await fetch('http://54.173.204.182:1337/api/cards?populate=*', {
+        const response = await fetch('http://54.172.222.113:1337/api/cards?populate=*', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -22,7 +22,7 @@ export const cardAPI = async () => {
 export const logoAPI = async () => {
 
     try {
-        const response = await fetch ('http://54.173.204.182:1337/api/logos?populate=*', {
+        const response = await fetch ('http://54.172.222.113:1337/api/logos?populate=*', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',       
