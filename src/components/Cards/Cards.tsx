@@ -140,7 +140,7 @@ const Cards: React.FC = () => {
                   {cardsData.map((card, index) => (
                       <div className={`card ${index % 2 === 0 ? "card-even" : "card-odd"}`} key={index}>
                           <img className={`card-Img ${isDarkMode ? 'low-box-shadow' : ''}`}
-                              src={`http://leopolddagorn.fr${card.attributes.image.data[0].attributes.url}`} 
+                              src={`https://leopolddagorn.fr${card.attributes.image.data[0].attributes.url}`} 
                               alt={`Card ${index}`} />
                       <div className={`card-text ${isDarkMode ? 'light-text' : 'dark-text'}`}>
                               <h2 className='card-title'>
@@ -154,7 +154,7 @@ const Cards: React.FC = () => {
                                   <img
                                       key={logoIndex}
                                       className='logo'
-                                      src={`http://leopolddagorn.fr${logo.attributes.url}`}
+                                      src={`https://leopolddagorn.fr${logo.attributes.url}`}
                                       alt={`Logo ${logoIndex}`}
                                   />
                               ))}

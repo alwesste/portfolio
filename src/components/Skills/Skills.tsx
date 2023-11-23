@@ -151,7 +151,7 @@ const {isDarkMode} = useTheme()
                           <div className="flip-card-front">
                             <img
                                 className="container-logo-img"
-                                src={`http://leopolddagorn.fr${logo.attributes.logo.data[0].attributes.url}`}
+                                src={`https://leopolddagorn.fr${logo.attributes.logo.data[0].attributes.url}`}
                                 alt={`technologie ${logo.attributes.logo.data[0].attributes.url}`}
                             />
                           </div>   
