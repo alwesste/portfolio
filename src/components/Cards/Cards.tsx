@@ -73,37 +73,43 @@ const Cards: React.FC = () => {
                  
     },[]);  
 
-    
-    let observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.animate(
-                    [
-                        { transform: "translateY(50px)", opacity: 0 },
-                        { transform: "translateY(0px)", opacity: 1 },
-                    ],
-                    {
-                        duration: 500
-                    }
-                ).onfinish = () => {
-                   (entry.target as HTMLElement).style.opacity = "1";
+    useEffect(() => {
+        let observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.animate(
+                        [
+                            { transform: "translateY(50px)", opacity: 0 },
+                            { transform: "translateY(0px)", opacity: 1 },
+                        ],
+                        {
+                            duration: 500
+                        }
+                    ).onfinish = () => {
+                    (entry.target as HTMLElement).style.opacity = "1";
+                    };
+                    
+                    observer.unobserve(entry.target);
                 }
-                ;
-                observer.unobserve(entry.target);
-            }
+            });
         });
-    });
-    
-    const elementsToObserve = document.querySelectorAll('.card-text');
-    const elementsToObserve2 = document.querySelectorAll('.card-Img');
-    
-    elementsToObserve.forEach((element) => {
-        observer.observe(element);
-    });
-    
-    elementsToObserve2.forEach((element) => {
-        observer.observe(element);
-    });
+        
+        const elementsToObserve = document.querySelectorAll('.card-text');
+        const elementsToObserve2 = document.querySelectorAll('.card-Img');
+        
+        elementsToObserve.forEach((element) => {
+            observer.observe(element);
+        });
+        
+        elementsToObserve2.forEach((element) => {
+            observer.observe(element);
+        });   
+        
+        return () => {
+            observer.disconnect();
+        }
+    })
+
     
     const tiltCards = document.querySelectorAll('.card-Img') as NodeListOf<HTMLDivElement>;
 
