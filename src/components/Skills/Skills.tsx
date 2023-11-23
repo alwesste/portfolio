@@ -29,7 +29,7 @@ const [isLogo, setIsLogo] = useState<LogoData[]>([]);
 const {isDarkMode} = useTheme()
 
 
-  useEffect(() => {
+    useEffect(() => {
 
         const fetchDataLogo = async () => {
             try {
@@ -43,7 +43,7 @@ const {isDarkMode} = useTheme()
           
           fetchDataLogo();
 
-    
+    },[])
   
     const observeLogoElements = () => {
       const listSkill = document.querySelectorAll('.container-skill-list li')
@@ -133,8 +133,8 @@ const {isDarkMode} = useTheme()
     }
     observeLogoElements();
 
-    // const CV = "../../assets/images/Leopold_Dagorn.pdf"
-  },[])
+  // const CV = "../../assets/images/Leopold_Dagorn.pdf"
+
 
     return (
     <div className="container">
@@ -163,7 +163,6 @@ const {isDarkMode} = useTheme()
               ))}
 
           </div>
-
           <div className="container-skill">
             <ul className="container-skill-list">
               <li>Référencement SEO</li>
