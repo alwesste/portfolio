@@ -1,6 +1,6 @@
 export const cardAPI = async () => {
     try {
-        const response = await fetch('http://52.70.43.187:1337/api/cards?populate=*', {
+        const response = await fetch('https://leopolddagorn.fr/api/cards?populate=*', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -22,7 +22,7 @@ export const cardAPI = async () => {
 export const logoAPI = async () => {
 
     try {
-        const response = await fetch ('http://52.70.43.187:1337/api/logos?populate=*', {
+        const response = await fetch ('https://leopolddagorn.fr/api/logos?populate=*', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',       

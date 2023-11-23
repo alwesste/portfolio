@@ -16,12 +16,17 @@ l'environnement Node.js et je peux intégrer des fonctionnalités côté serveur
 // import nina from  "../../assets/images/ninaCarducci.png";
 
 // import logoGithub from "../logo/github.png"
-// import logoHTML from "../logo/html5CC3.png"
+// import logoHTML from "../logo/htmlcss-logo-title.svg"
 // import logoJS from "../logo/JS TS.png"
 // import logoAgile from "../logo/methode_agile1.png"
 // import logoRedux from "../logo/redux.png"
-// import logoSEO from "../logo/SEO.avif"
+// import logoSEO from "../logo/SEO.png"
 // import logoReact from "../logo/React-icon.svg.png"
+// import logoFigma from "../logo/figma.png"
+// import logoAws from "../logo/AWS.png"
+// import logoSass from "../logo/sass.png"
+// import logoJest from "../logo/jest.png"
+// import logoReactvite from "../logo/logoVite.svg"
 
 // const textTitleEvents: string = 'Events';
 // const textTitleArgentBank: string = 'ArgentBank';
@@ -55,32 +60,39 @@ l'environnement Node.js et je peux intégrer des fonctionnalités côté serveur
 //     img: string;
 //     text: string;
 //     title: string
+//     link: string
 // }
 
 
 // export const cards: Card[] = [
-//     { img: events, text: textEvents, title: textTitleEvents },
-//     { img: argentBank, text: textBank, title: textTitleArgentBank},
-//     { img: booki, text: textBooki, title: textTitleBooki},
-//     { img: kasa, text: textKasa, title: textTitleKasa},
-//     { img: ohmyfood, text: textOhmyfood, title: textTitleOhmyfood},
-//     { img: printit, text: textPrintIt, title: textTitlePrintit},
-//     { img: sophie, text: textSophie, title: textTitleSophie},
-//     { img: nina, text: textNina, title: textTitleNina},
+//     { img: events, text: textEvents, title: textTitleEvents, link: githubEvent },
+//     { img: argentBank, text: textBank, title: textTitleArgentBank, link: githubArgentBank},
+//     { img: booki, text: textBooki, title: textTitleBooki, link: githubBooki},
+//     { img: kasa, text: textKasa, title: textTitleKasa, link: githubKasa},
+//     { img: ohmyfood, text: textOhmyfood, title: textTitleOhmyfood, link: githubOhmyFood},
+//     { img: printit, text: textPrintIt, title: textTitlePrintit, link: githubPrintIt},
+//     { img: sophie, text: textSophie, title: textTitleSophie, link: githubSophie},
+//     { img: nina, text: textNina, title: textTitleNina, link: githubNina},
 // ];
 
 // export interface logos {
-//     logo: string
+//     logo: string,
+//     title: string
 // }
 
 // export const logos:  logos[] = [
-//     { logo: logoGithub },
-//     { logo: logoHTML },
-//     { logo: logoJS },
-//     { logo: logoAgile },
-//     { logo: logoRedux },
-//     { logo: logoReact },
-//     { logo: logoSEO },
+//     { logo: logoGithub, title: "Github"  },
+//     { logo: logoHTML, title: "HTML" },
+//     { logo: logoJS, title: "JS & TS"},
+//     { logo: logoAgile, title: "Agile"},
+//     { logo: logoRedux, title: "Redux" },
+//     { logo: logoReact, title: "React"},
+//     { logo: logoFigma, title: "Figma"},
+//     { logo: logoAws, title: "Aws"},
+//     { logo: logoSass, title: "Sass"},
+//     { logo: logoJest, title: "Jest"},
+//     { logo: logoReactvite, title: "Vite"},
+//     { logo: logoSEO, title: "SEO"},
 // ]
 
 // export interface githubLink {
