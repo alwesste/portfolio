@@ -134,7 +134,7 @@ const Cards: React.FC = () => {
             });
         }); 
 
-    },[cardsData])
+    })
     
     
 
