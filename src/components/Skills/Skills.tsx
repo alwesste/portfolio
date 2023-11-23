@@ -44,68 +44,75 @@ const {isDarkMode} = useTheme()
           fetchDataLogo();
 
     },[])
-  
-    const observeLogoElements = () => {
-      const listSkill = document.querySelectorAll('.container-skill-list li')
 
-      const observer2 = new IntersectionObserver((entries) => {
-        console.log("listskill On")
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.animate(
-              [
-                { transform: "translateX(150px)", opacity: 0 },
-                { transform: "translateX(0px)", opacity: 1 },
-              ],
-              {
-                duration: 500,
+    useEffect(() => {
+        const observeLogoElements = () => {
+          const listSkill = document.querySelectorAll('.container-skill-list li')
+
+          const observer2 = new IntersectionObserver((entries) => {
+            console.log("listskill On")
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.animate(
+                  [
+                    { transform: "translateX(150px)", opacity: 0 },
+                    { transform: "translateX(0px)", opacity: 1 },
+                  ],
+                  {
+                    duration: 500,
+                  }
+                ).onfinish = () => {
+                  (entry.target as HTMLElement).style.opacity = "1";
+                  observer2.unobserve(entry.target);
+                };
               }
-            ).onfinish = () => {
-              (entry.target as HTMLElement).style.opacity = "1";
-              observer2.unobserve(entry.target);
-            };
-          }
-        });
-      }, { threshold: 0 });
+            });
+          }, { threshold: 0 });
+        
+          listSkill.forEach((element) => {
+            observer2.observe(element);
+          });
+
+          const resumeParagraph = document.querySelector(".resume-paragraph")as HTMLElement | null;
+          const logoElements = document.querySelectorAll('.flip-card');
+
+          const observer = new IntersectionObserver((entries) => {
+            console.log("resumeParagraph On")
+
+            entries.forEach((entry, index) => {
+              if (entry.isIntersecting) {
+                setTimeout(() => {
+                  entry.target.animate(
+                    [
+                      { transform: "translateY(50px)", opacity: 0 },
+                      { transform: "translateY(0px)", opacity: 1 },
+                    ],
+                    {
+                      duration: 500,
+                    }
+                  ).onfinish = () => {
+                    (entry.target as HTMLElement).style.opacity = "1";
+                  };
+                }, index * 200); 
+                observer.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0 });
+
+          if (resumeParagraph) {
+            observer.observe(resumeParagraph);
+          }      
+          
+          logoElements.forEach((element) => {
+            observer.observe(element);
+          });
+        };
+
+        observeLogoElements()
+        
+    })
+  
     
-      listSkill.forEach((element) => {
-        observer2.observe(element);
-      });
-
-      const resumeParagraph = document.querySelector(".resume-paragraph")as HTMLElement | null;
-      const logoElements = document.querySelectorAll('.flip-card');
-
-      const observer = new IntersectionObserver((entries) => {
-        console.log("resumeParagraph On")
-
-        entries.forEach((entry, index) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => {
-              entry.target.animate(
-                [
-                  { transform: "translateY(50px)", opacity: 0 },
-                  { transform: "translateY(0px)", opacity: 1 },
-                ],
-                {
-                  duration: 500,
-                }
-              ).onfinish = () => {
-                (entry.target as HTMLElement).style.opacity = "1";
-              };
-            }, index * 200); 
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0 });
-
-      if (resumeParagraph) {
-        observer.observe(resumeParagraph);
-      }      
-      
-      logoElements.forEach((element) => {
-        observer.observe(element);
-      });
-    };
 
     const myCV = document.querySelector(".CV") as HTMLElement | null
 
@@ -134,7 +141,6 @@ const {isDarkMode} = useTheme()
     if (myCV) {
       observer3.observe(myCV)
     }
-    observeLogoElements();
 
   // const CV = "../../assets/images/Leopold_Dagorn.pdf"
 
