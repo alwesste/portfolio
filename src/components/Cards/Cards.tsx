@@ -83,7 +83,7 @@ const Cards: React.FC = () => {
                             { transform: "translateY(0px)", opacity: 1 },
                         ],
                         {
-                            duration: 500
+                            duration: 500,
                         }
                     ).onfinish = () => {
                     (entry.target as HTMLElement).style.opacity = "1";
@@ -133,43 +133,7 @@ const Cards: React.FC = () => {
     
 
         return (
-            // <section className="project" id="my-works">
-            //     <h1 className="project-title">My Works</h1>
-            //     <div className="cardContainer">
-            //         {cards.map((card, index) => (
-            //             <div className={`card ${index % 2 === 0 ? "card-even" : "card-odd"}`} key={index}>
-            //                 <img className={`card-Img ${isDarkMode ? 'low-box-shadow' : ''}`}
-            //                     src={card.img}
-            //                     alt={`Card ${index}`} />
-            //             <div className={`card-text ${isDarkMode ? 'light-text' : 'dark-text'}`}>
-            //                     <h2 className='card-title'>
-            //                         {card.title}
-            //                     </h2>
-            //                     <p ref={descriptionRef} className={`card-description${index}`}>
-            //                         {card.text} 
-            //                     </p>
-            //                     <div className={`card-logo-container${index}`}>
-            //                         {logos.map((logo, logoIndex: number) => (
-            //                         <img
-            //                             key={logoIndex}
-            //                             className='logo'
-            //                             src={logo.logo}
-            //                             alt={`Logo ${logoIndex}`}
-            //                         />
-            //                     ))}
-            //                     </div>
-            //                     <div className='card-button'>
-            //                         <Button link={card.link} />
-            //                         <Button appear={true} className={`card-description-change ${index} ${isDarkMode ? 'light-text' : 'dark-text' }`}
-            //                             onClick={() => handleConsole(index)}/>
-            //                     </div>
-                                
-            //                 </div>
-            //             </div>
-            //         ))}
-            //     </div>
-            // </section>
-              <section className="project" id="my-works">
+            <section className="project" id="my-works">
               <h1 className="project-title">My Works</h1>
               <div className="cardContainer">
                   {cardsData.map((card, index) => (
@@ -204,7 +168,7 @@ const Cards: React.FC = () => {
                       </div>
                   ))}
               </div>
-          </section>
+            </section>
         );
         
 }
