@@ -108,9 +108,11 @@ const Cards: React.FC = () => {
         return () => {
             observer.disconnect();
         }
-    })
+    },[])
     
-    const tiltCards = document.querySelectorAll('.card-Img') as NodeListOf<HTMLDivElement>;
+
+    useEffect(() => {
+        const tiltCards = document.querySelectorAll('.card-Img') as NodeListOf<HTMLDivElement>;
 
         tiltCards.forEach((card) => {
             card.addEventListener('mousemove', (e: MouseEvent) => {
@@ -131,6 +133,9 @@ const Cards: React.FC = () => {
                 card.style.removeProperty("--rotateY");
             });
         }); 
+
+    },[cardsData])
+    
     
 
         return (
