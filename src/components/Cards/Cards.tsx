@@ -110,26 +110,39 @@ const Cards: React.FC = () => {
      observerCardElement();
 
 
-    const tiltCards = document.querySelectorAll('.card-Img') as NodeListOf<HTMLDivElement>;
-
-        tiltCards.forEach((card) => {
-            card.addEventListener('mousemove', (e: MouseEvent) => {
-                const rect = card.getBoundingClientRect();
-                const cardCenterX = rect.left + rect.width / 2;
-                const cardCenterY = rect.top + rect.height / 2;
-                
-                const xAxis = (e.clientX - cardCenterX) / 5;
-                const yAxis = (e.clientY - cardCenterY) / 5;
-
-                card.style.setProperty("--rotateX", -1 * yAxis + "deg");
-                card.style.setProperty("--rotateY", xAxis + "deg");            
-            });
+     useEffect(() => {
+        const tiltCards = document.querySelectorAll('.card-Img') as NodeListOf<HTMLDivElement>;
     
-            card.addEventListener('mouseleave', () => {
-                card.style.removeProperty("--rotateX");
-                card.style.removeProperty("--rotateY");
+        const handleMouseEnter = (card: HTMLDivElement) => (e: MouseEvent) => {
+            const rect = card.getBoundingClientRect();
+            const cardCenterX = rect.left + rect.width / 2;
+            const cardCenterY = rect.top + rect.height / 2;
+    
+            const xAxis = (e.clientX - cardCenterX) / 5;
+            const yAxis = (e.clientY - cardCenterY) / 5;
+    
+            card.style.setProperty("--rotateX", -1 * yAxis + "deg");
+            card.style.setProperty("--rotateY", xAxis + "deg");
+        };
+    
+        const handleMouseLeave = (card: HTMLDivElement) => () => {
+            card.style.removeProperty("--rotateX");
+            card.style.removeProperty("--rotateY");
+        };
+    
+        tiltCards.forEach((card) => {
+            card.addEventListener('mouseenter', handleMouseEnter(card));
+            card.addEventListener('mouseleave', handleMouseLeave(card));
+        });
+    
+        // Cleanup function
+        return () => {
+            tiltCards.forEach((card) => {
+                card.removeEventListener('mouseenter', handleMouseEnter(card));
+                card.removeEventListener('mouseleave', handleMouseLeave(card));
             });
-        }); 
+        };
+    }, []); // Empty dependency a
     
 
         return (              
