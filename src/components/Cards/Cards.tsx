@@ -35,7 +35,6 @@ const Cards: React.FC = () => {
     const [cardsData, setCardsData] = useState<CardsData[]>([]);
     const {isDarkMode} = useTheme()
 
-   
 
     const handleConsole = (index: number) => {
         const description = document.querySelector(`.card-description${index}`) as HTMLElement | null;
@@ -109,31 +108,29 @@ const Cards: React.FC = () => {
         return () => {
             observer.disconnect();
         }
-    }, [])
-
+    })
+    
     const tiltCards = document.querySelectorAll('.card-Img') as NodeListOf<HTMLDivElement>;
 
-    tiltCards.forEach((card) => {
-        card.addEventListener('mousemove', (e: MouseEvent) => {
-            const rect = card.getBoundingClientRect();
-            const cardCenterX = rect.left + rect.width / 2;
-            const cardCenterY = rect.top + rect.height / 2;
-            
-            const xAxis = (e.clientX - cardCenterX) / 5;
-            const yAxis = (e.clientY - cardCenterY) / 5;
+        tiltCards.forEach((card) => {
+            card.addEventListener('mousemove', (e: MouseEvent) => {
+                const rect = card.getBoundingClientRect();
+                const cardCenterX = rect.left + rect.width / 2;
+                const cardCenterY = rect.top + rect.height / 2;
+                
+                const xAxis = (e.clientX - cardCenterX) / 5;
+                const yAxis = (e.clientY - cardCenterY) / 5;
 
-            card.style.setProperty("--rotateX", -1 * yAxis + "deg");
-            card.style.setProperty("--rotateY", xAxis + "deg");            
-        });
-
-        card.addEventListener('mouseleave', () => {
-            card.style.removeProperty("--rotateX");
-            card.style.removeProperty("--rotateY");
-        });
-    });     
-
+                card.style.setProperty("--rotateX", -1 * yAxis + "deg");
+                card.style.setProperty("--rotateY", xAxis + "deg");            
+            });
     
-        
+            card.addEventListener('mouseleave', () => {
+                card.style.removeProperty("--rotateX");
+                card.style.removeProperty("--rotateY");
+            });
+        }); 
+    
 
         return (
             // <section className="project" id="my-works">
