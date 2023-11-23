@@ -1,10 +1,10 @@
-export const presentation : string = `Après avoir passé quatre années à l'étranger. J'ai decide de me reconvertir dans un domaine qui me passionne "le developpement web".
-Pour cela j'ai passer une certification RNCP de niveau 5 chez openclassrooms. Au cours de ma formation, j'ai acquis une solide expertise dans un éventail
-de technologies essentielles pour le développement front-end. J'ai développé des compétences en JavaScript, TypeScript, React, Vue, Redux, HTML5, CSS3, Sass et l'optimisation web. 
-Ma connaissance du référencement (SEO) et mon expérience dans l'optimisation de sites web garantissent que les projets que je touche sont non seulement visuellement attrayants, 
-mais aussi performants sur les moteurs de recherche.Je suis adepte des méthodes agiles, ce qui signifie que je suis flexible, réactif et axé sur la collaboration. Je suis à l'aise dans 
-l'environnement Node.js et je peux intégrer des fonctionnalités côté serveur dans mes applications front-end. Cela me permet de créer des applications web robustes et évolutives.
-`
+// export const presentation : string = `Après avoir passé quatre années à l'étranger. J'ai decide de me reconvertir dans un domaine qui me passionne "le developpement web".
+// Pour cela j'ai passer une certification RNCP de niveau 5 chez openclassrooms. Au cours de ma formation, j'ai acquis une solide expertise dans un éventail
+// de technologies essentielles pour le développement front-end. J'ai développé des compétences en JavaScript, TypeScript, React, Vue, Redux, HTML5, CSS3, Sass et l'optimisation web. 
+// Ma connaissance du référencement (SEO) et mon expérience dans l'optimisation de sites web garantissent que les projets que je touche sont non seulement visuellement attrayants, 
+// mais aussi performants sur les moteurs de recherche.Je suis adepte des méthodes agiles, ce qui signifie que je suis flexible, réactif et axé sur la collaboration. Je suis à l'aise dans 
+// l'environnement Node.js et je peux intégrer des fonctionnalités côté serveur dans mes applications front-end. Cela me permet de créer des applications web robustes et évolutives.
+// `
 
 // import events from "../../assets/images/77events.png";
 // import argentBank from "../../assets/images/argentBank.png";
@@ -16,12 +16,17 @@ l'environnement Node.js et je peux intégrer des fonctionnalités côté serveur
 // import nina from  "../../assets/images/ninaCarducci.png";
 
 // import logoGithub from "../logo/github.png"
-// import logoHTML from "../logo/html5CC3.png"
+// import logoHTML from "../logo/htmlcss-logo-title.svg"
 // import logoJS from "../logo/JS TS.png"
 // import logoAgile from "../logo/methode_agile1.png"
 // import logoRedux from "../logo/redux.png"
-// import logoSEO from "../logo/SEO.avif"
+// import logoSEO from "../logo/SEO.png"
 // import logoReact from "../logo/React-icon.svg.png"
+// import logoFigma from "../logo/figma.png"
+// import logoAws from "../logo/AWS.png"
+// import logoSass from "../logo/sass.png"
+// import logoJest from "../logo/jest.png"
+// import logoReactvite from "../logo/logoVite.svg"
 
 // const textTitleEvents: string = 'Events';
 // const textTitleArgentBank: string = 'ArgentBank';
@@ -55,32 +60,39 @@ l'environnement Node.js et je peux intégrer des fonctionnalités côté serveur
 //     img: string;
 //     text: string;
 //     title: string
+//     link: string
 // }
 
 
 // export const cards: Card[] = [
-//     { img: events, text: textEvents, title: textTitleEvents },
-//     { img: argentBank, text: textBank, title: textTitleArgentBank},
-//     { img: booki, text: textBooki, title: textTitleBooki},
-//     { img: kasa, text: textKasa, title: textTitleKasa},
-//     { img: ohmyfood, text: textOhmyfood, title: textTitleOhmyfood},
-//     { img: printit, text: textPrintIt, title: textTitlePrintit},
-//     { img: sophie, text: textSophie, title: textTitleSophie},
-//     { img: nina, text: textNina, title: textTitleNina},
+//     { img: events, text: textEvents, title: textTitleEvents, link: githubEvent },
+//     { img: argentBank, text: textBank, title: textTitleArgentBank, link: githubArgentBank},
+//     { img: booki, text: textBooki, title: textTitleBooki, link: githubBooki},
+//     { img: kasa, text: textKasa, title: textTitleKasa, link: githubKasa},
+//     { img: ohmyfood, text: textOhmyfood, title: textTitleOhmyfood, link: githubOhmyFood},
+//     { img: printit, text: textPrintIt, title: textTitlePrintit, link: githubPrintIt},
+//     { img: sophie, text: textSophie, title: textTitleSophie, link: githubSophie},
+//     { img: nina, text: textNina, title: textTitleNina, link: githubNina},
 // ];
 
 // export interface logos {
-//     logo: string
+//     logo: string,
+//     title: string
 // }
 
 // export const logos:  logos[] = [
-//     { logo: logoGithub },
-//     { logo: logoHTML },
-//     { logo: logoJS },
-//     { logo: logoAgile },
-//     { logo: logoRedux },
-//     { logo: logoReact },
-//     { logo: logoSEO },
+//     { logo: logoGithub, title: "Github"  },
+//     { logo: logoHTML, title: "HTML" },
+//     { logo: logoJS, title: "JS & TS"},
+//     { logo: logoAgile, title: "Agile"},
+//     { logo: logoRedux, title: "Redux" },
+//     { logo: logoReact, title: "React"},
+//     { logo: logoFigma, title: "Figma"},
+//     { logo: logoAws, title: "Aws"},
+//     { logo: logoSass, title: "Sass"},
+//     { logo: logoJest, title: "Jest"},
+//     { logo: logoReactvite, title: "Vite"},
+//     { logo: logoSEO, title: "SEO"},
 // ]
 
 // export interface githubLink {

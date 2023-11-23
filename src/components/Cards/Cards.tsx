@@ -1,7 +1,8 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect,  useRef, useState } from 'react';
 import { cardAPI } from '../utils/api';
 import Button from "../Button/Button";
 import { useTheme } from '../utils/ThemeContext';
+// import { cards, logos } from '../../assets/variables/variables';
 import "./Cards.scss"
 
 interface CardsData {
@@ -53,7 +54,6 @@ const Cards: React.FC = () => {
     const descriptionRef = useRef(null);
 
     useEffect(() => {
-
 
         const fetchData = async () => {
             try {
@@ -125,45 +125,81 @@ const Cards: React.FC = () => {
                 card.style.removeProperty("--rotateY");
             });
         }); 
-
+    
 
         return (
-            <section className="project" id="my-works">
-                <h1 className="project-title">My Works</h1>
-                <div className="cardContainer">
-                    {cardsData.map((card, index) => (
-                        <div className={`card ${index % 2 === 0 ? "card-even" : "card-odd"}`} key={index}>
-                            <img className={`card-Img ${isDarkMode ? 'low-box-shadow' : ''}`}
-                                src={`http://52.70.43.187:1337${card.attributes.image.data[0].attributes.url}`} 
-                                alt={`Card ${index}`} />
-                        <div className={`card-text ${isDarkMode ? 'light-text' : 'dark-text'}`}>
-                                <h2 className='card-title'>
-                                    {card.attributes.title}
-                                </h2>
-                                <p ref={descriptionRef} className={`card-description${index}`}>
-                                    {card.attributes.cardProject} 
-                                </p>
-                                <div className={`card-logo-container${index}`}>
-                                    {card.attributes.logo.data.map((logo, logoIndex: number) => (
-                                    <img
-                                        key={logoIndex}
-                                        className='logo'
-                                        src={`http://52.70.43.187:1337${logo.attributes.url}`}
-                                        alt={`Logo ${logoIndex}`}
-                                    />
-                                ))}
-                                </div>
-                                <div className='card-button'>
-                                    <Button link={card.attributes.githubLink} />
-                                    <Button appear={true} className={`card-description-change ${index} ${isDarkMode ? 'light-text' : 'dark-text' }`}
-                                        onClick={() => handleConsole(index)}/>
-                                </div>
+            // <section className="project" id="my-works">
+            //     <h1 className="project-title">My Works</h1>
+            //     <div className="cardContainer">
+            //         {cards.map((card, index) => (
+            //             <div className={`card ${index % 2 === 0 ? "card-even" : "card-odd"}`} key={index}>
+            //                 <img className={`card-Img ${isDarkMode ? 'low-box-shadow' : ''}`}
+            //                     src={card.img}
+            //                     alt={`Card ${index}`} />
+            //             <div className={`card-text ${isDarkMode ? 'light-text' : 'dark-text'}`}>
+            //                     <h2 className='card-title'>
+            //                         {card.title}
+            //                     </h2>
+            //                     <p ref={descriptionRef} className={`card-description${index}`}>
+            //                         {card.text} 
+            //                     </p>
+            //                     <div className={`card-logo-container${index}`}>
+            //                         {logos.map((logo, logoIndex: number) => (
+            //                         <img
+            //                             key={logoIndex}
+            //                             className='logo'
+            //                             src={logo.logo}
+            //                             alt={`Logo ${logoIndex}`}
+            //                         />
+            //                     ))}
+            //                     </div>
+            //                     <div className='card-button'>
+            //                         <Button link={card.link} />
+            //                         <Button appear={true} className={`card-description-change ${index} ${isDarkMode ? 'light-text' : 'dark-text' }`}
+            //                             onClick={() => handleConsole(index)}/>
+            //                     </div>
                                 
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
+            //                 </div>
+            //             </div>
+            //         ))}
+            //     </div>
+            // </section>
+              <section className="project" id="my-works">
+              <h1 className="project-title">My Works</h1>
+              <div className="cardContainer">
+                  {cardsData.map((card, index) => (
+                      <div className={`card ${index % 2 === 0 ? "card-even" : "card-odd"}`} key={index}>
+                          <img className={`card-Img ${isDarkMode ? 'low-box-shadow' : ''}`}
+                              src={`https://leopolddagorn.fr${card.attributes.image.data[0].attributes.url}`} 
+                              alt={`Card ${index}`} />
+                      <div className={`card-text ${isDarkMode ? 'light-text' : 'dark-text'}`}>
+                              <h2 className='card-title'>
+                                  {card.attributes.title}
+                              </h2>
+                              <p ref={descriptionRef} className={`card-description${index}`}>
+                                  {card.attributes.cardProject} 
+                              </p>
+                              <div className={`card-logo-container${index}`}>
+                                  {card.attributes.logo.data.map((logo, logoIndex: number) => (
+                                  <img
+                                      key={logoIndex}
+                                      className='logo'
+                                      src={`https://leopolddagorn.fr${logo.attributes.url}`}
+                                      alt={`Logo ${logoIndex}`}
+                                  />
+                              ))}
+                              </div>
+                              <div className='card-button'>
+                                  <Button link={card.attributes.githubLink} />
+                                  <Button appear={true} className={`card-description-change ${index} ${isDarkMode ? 'light-text' : 'dark-text' }`}
+                                      onClick={() => handleConsole(index)}/>
+                              </div>
+                              
+                          </div>
+                      </div>
+                  ))}
+              </div>
+          </section>
         );
         
 }

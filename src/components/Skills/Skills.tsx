@@ -1,7 +1,9 @@
 import "./Skills.scss"
 import { useEffect, useState } from "react"
+// import { logos } from "../../assets/variables/variables";
 import { logoAPI } from "../utils/api";
 import { useTheme } from "../utils/ThemeContext";
+
 interface LogoData {
     attributes: {          
         title: string;
@@ -26,6 +28,7 @@ const Skills : React.FC = () => {
 const [isLogo, setIsLogo] = useState<LogoData[]>([]);
 const {isDarkMode} = useTheme()
 
+
     useEffect(() => {
 
         const fetchDataLogo = async () => {
@@ -40,8 +43,7 @@ const {isDarkMode} = useTheme()
           
           fetchDataLogo();
 
-    
-    },[])
+        },[])
 
     const observeLogoElements = () => {
       const listSkill = document.querySelectorAll('.container-skill-list li')
@@ -128,10 +130,9 @@ const {isDarkMode} = useTheme()
     if (myCV) {
       observer3.observe(myCV)
     }
-    
-
-
     observeLogoElements();
+
+  // const CV = "../../assets/images/Leopold_Dagorn.pdf"
 
 
     return (
@@ -149,7 +150,7 @@ const {isDarkMode} = useTheme()
                           <div className="flip-card-front">
                             <img
                                 className="container-logo-img"
-                                src={`http://52.70.43.187:1337${logo.attributes.logo.data[0].attributes.url}`}
+                                src={`https://leopolddagorn.fr${logo.attributes.logo.data[0].attributes.url}`}
                                 alt={`technologie ${logo.attributes.logo.data[0].attributes.url}`}
                             />
                           </div>   
@@ -161,6 +162,28 @@ const {isDarkMode} = useTheme()
               ))}
 
           </div>
+
+            {/* <div className="container-logo">
+              {logos.map((logo, index) => (
+                  <div className="flip-card"
+                      key={index}
+                      >
+                        <div className="flip-card-inner">
+                          <div className="flip-card-front">
+                            <img
+                                className="container-logo-img"
+                                src={logo.logo}
+                                alt={`technologie ${index}`}
+                            />
+                          </div>   
+                                          
+                          <div className={`flip-card-back ${isDarkMode && 'flip-card-back-light'}`}><p>{logo.title}</p></div>
+
+                        </div>
+                  </div>
+              ))}
+
+          </div> */}
           <div className="container-skill">
             <ul className="container-skill-list">
               <li>Référencement SEO</li>
@@ -184,7 +207,7 @@ const {isDarkMode} = useTheme()
         <section id="resume" className="resume parallaxSkill">
           <h1 className="resume-title">My Resume</h1>
           <p className="resume-paragraph">Découvrez mon profil et parcours complet, en téléchargeant mon CV          
-            <a className={`CV ${isDarkMode && 'light'}`} href="monCV">My resume</a>
+            {/* <a className={`CV ${isDarkMode && 'light'}`} href={CV}>My resume</a> */}
           </p>
         </section>
     </div>
