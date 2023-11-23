@@ -49,6 +49,7 @@ const {isDarkMode} = useTheme()
       const listSkill = document.querySelectorAll('.container-skill-list li')
 
       const observer2 = new IntersectionObserver((entries) => {
+        console.log("listskill On")
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.animate(
@@ -75,6 +76,8 @@ const {isDarkMode} = useTheme()
       const logoElements = document.querySelectorAll('.flip-card');
 
       const observer = new IntersectionObserver((entries) => {
+        console.log("resumeParagraph On")
+
         entries.forEach((entry, index) => {
           if (entry.isIntersecting) {
             setTimeout(() => {
