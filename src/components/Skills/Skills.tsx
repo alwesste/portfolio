@@ -45,96 +45,97 @@ const {isDarkMode} = useTheme()
 
     },[])
     useEffect(() => {
-
-    })
-
-    const observeLogoElements = () => {
-      const listSkill = document.querySelectorAll('.container-skill-list li')
-
-      const observer2 = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.animate(
-              [
-                { transform: "translateX(150px)", opacity: 0 },
-                { transform: "translateX(0px)", opacity: 1 },
-              ],
-              {
-                duration: 500,
-              }
-            ).onfinish = () => {
-              (entry.target as HTMLElement).style.opacity = "1";
-              observer2.unobserve(entry.target);
-            };
-          }
-        });
-      }, { threshold: 0 });
-    
-      listSkill.forEach((element) => {
-        observer2.observe(element);
-      });
-
-      const resumeParagraph = document.querySelector(".resume-paragraph")as HTMLElement | null;
-      const logoElements = document.querySelectorAll('.flip-card');
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => {
+      const observeLogoElements = () => {
+        const listSkill = document.querySelectorAll('.container-skill-list li')
+  
+        const observer2 = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
               entry.target.animate(
                 [
-                  { transform: "translateY(50px)", opacity: 0 },
-                  { transform: "translateY(0px)", opacity: 1 },
+                  { transform: "translateX(150px)", opacity: 0 },
+                  { transform: "translateX(0px)", opacity: 1 },
                 ],
                 {
                   duration: 500,
                 }
               ).onfinish = () => {
                 (entry.target as HTMLElement).style.opacity = "1";
+                observer2.unobserve(entry.target);
               };
-            }, index * 200); 
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0 });
-
-      if (resumeParagraph) {
-        observer.observe(resumeParagraph);
-      }      
-      
-      logoElements.forEach((element) => {
-        observer.observe(element);
-      });
-    };
-
-    const myCV = document.querySelector(".CV") as HTMLElement | null
-
-    const observer3 = new IntersectionObserver((entries) => {
-      entries.forEach((entry)=> {
-        setTimeout(() => {
-          if (entry.isIntersecting) {
-          entry.target.animate(
-            [
-              { transform: "scale(0.2)", opacity: 0 },
-              { transform: "scale(1)", opacity: 1 },
-            ],
-            {
-              duration: 500,
             }
-          ).onfinish = () => {
-            (entry.target as HTMLElement).style.opacity = "1";
-            observer3.unobserve(entry.target);
-          };
-        }  
-        }, 500);
+          });
+        }, { threshold: 0 });
       
-      });
-    }, { threshold: 0 })
+        listSkill.forEach((element) => {
+          observer2.observe(element);
+        });
+  
+        const resumeParagraph = document.querySelector(".resume-paragraph")as HTMLElement | null;
+        const logoElements = document.querySelectorAll('.flip-card');
+  
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => {
+                entry.target.animate(
+                  [
+                    { transform: "translateY(50px)", opacity: 0 },
+                    { transform: "translateY(0px)", opacity: 1 },
+                  ],
+                  {
+                    duration: 500,
+                  }
+                ).onfinish = () => {
+                  (entry.target as HTMLElement).style.opacity = "1";
+                };
+              }, index * 200); 
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0 });
+  
+        if (resumeParagraph) {
+          observer.observe(resumeParagraph);
+        }      
+        
+        logoElements.forEach((element) => {
+          observer.observe(element);
+        });
+      };
+  
+      const myCV = document.querySelector(".CV") as HTMLElement | null
+  
+      const observer3 = new IntersectionObserver((entries) => {
+        entries.forEach((entry)=> {
+          setTimeout(() => {
+            if (entry.isIntersecting) {
+            entry.target.animate(
+              [
+                { transform: "scale(0.2)", opacity: 0 },
+                { transform: "scale(1)", opacity: 1 },
+              ],
+              {
+                duration: 500,
+              }
+            ).onfinish = () => {
+              (entry.target as HTMLElement).style.opacity = "1";
+              observer3.unobserve(entry.target);
+            };
+          }  
+          }, 500);
+        
+        });
+      }, { threshold: 0 })
+  
+      if (myCV) {
+        observer3.observe(myCV)
+      }
+      observeLogoElements();
 
-    if (myCV) {
-      observer3.observe(myCV)
-    }
-    observeLogoElements();
+    },[])
+
+    
 
   // const CV = "../../assets/images/Leopold_Dagorn.pdf"
 
