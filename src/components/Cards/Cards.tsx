@@ -108,7 +108,7 @@ const Cards: React.FC = () => {
         
         observerCardElement();
 
-    } )    
+    })    
        
 
     
