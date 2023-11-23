@@ -70,7 +70,8 @@ const Cards: React.FC = () => {
         fetchData(); 
                  
     },[]); 
-    
+
+    useEffect(() => {
         const observerCardElement = () => {
             let observer = new IntersectionObserver((entries) => {
                 console.log("card-text")
@@ -106,6 +107,9 @@ const Cards: React.FC = () => {
         }
         
         observerCardElement();
+
+    } )    
+       
 
     
 
