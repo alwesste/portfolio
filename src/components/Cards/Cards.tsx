@@ -71,7 +71,6 @@ const Cards: React.FC = () => {
                  
     },[]); 
     
-    useEffect(()=> {
         const observerCardElement = () => {
             let observer = new IntersectionObserver((entries) => {
                 console.log("card-text")
@@ -107,10 +106,10 @@ const Cards: React.FC = () => {
         }
         
         observerCardElement();
-    })
 
     
 
+    useEffect(()=> {
 
     const tiltCards = document.querySelectorAll('.card-Img') as NodeListOf<HTMLDivElement>;
 
@@ -132,7 +131,8 @@ const Cards: React.FC = () => {
                 card.style.removeProperty("--rotateY");
             });
         }); 
-    
+    })
+
 
         return (              
               <section className="project" id="my-works">
