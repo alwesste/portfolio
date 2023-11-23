@@ -29,7 +29,7 @@ const [isLogo, setIsLogo] = useState<LogoData[]>([]);
 const {isDarkMode} = useTheme()
 
 
-    useEffect(() => {
+  useEffect(() => {
 
         const fetchDataLogo = async () => {
             try {
@@ -43,7 +43,7 @@ const {isDarkMode} = useTheme()
           
           fetchDataLogo();
 
-    },[])
+    
   
     const observeLogoElements = () => {
       const listSkill = document.querySelectorAll('.container-skill-list li')
@@ -133,8 +133,8 @@ const {isDarkMode} = useTheme()
     }
     observeLogoElements();
 
-  // const CV = "../../assets/images/Leopold_Dagorn.pdf"
-
+    // const CV = "../../assets/images/Leopold_Dagorn.pdf"
+  },[])
 
     return (
     <div className="container">
@@ -164,27 +164,6 @@ const {isDarkMode} = useTheme()
 
           </div>
 
-            {/* <div className="container-logo">
-              {logos.map((logo, index) => (
-                  <div className="flip-card"
-                      key={index}
-                      >
-                        <div className="flip-card-inner">
-                          <div className="flip-card-front">
-                            <img
-                                className="container-logo-img"
-                                src={logo.logo}
-                                alt={`technologie ${index}`}
-                            />
-                          </div>   
-                                          
-                          <div className={`flip-card-back ${isDarkMode && 'flip-card-back-light'}`}><p>{logo.title}</p></div>
-
-                        </div>
-                  </div>
-              ))}
-
-          </div> */}
           <div className="container-skill">
             <ul className="container-skill-list">
               <li>Référencement SEO</li>

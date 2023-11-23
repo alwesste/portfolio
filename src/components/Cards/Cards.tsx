@@ -66,13 +66,14 @@ const Cards: React.FC = () => {
                 }
             } catch (error) {
                 console.error('Error fetching data:', error); 
-            }
+}
         };
 
         fetchData(); 
                  
     },[]);  
 
+    useEffect(() => {
         let observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -107,6 +108,7 @@ const Cards: React.FC = () => {
         return () => {
             observer.disconnect();
         }
+    },[])
     
 
     useEffect(() => {
@@ -132,7 +134,7 @@ const Cards: React.FC = () => {
             });
         }); 
 
-    },[cardsData])
+    })
     
     
 
