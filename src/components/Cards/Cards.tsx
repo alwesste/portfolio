@@ -72,7 +72,8 @@ const Cards: React.FC = () => {
         fetchData(); 
                  
     },[]);  
-    
+
+    useEffect(() => {
         let observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -103,9 +104,8 @@ const Cards: React.FC = () => {
         elementsToObserve2.forEach((element) => {
             observer.observe(element);
         });   
-
+    },[])
     
-
 
     const tiltCards = document.querySelectorAll('.card-Img') as NodeListOf<HTMLDivElement>;
 
