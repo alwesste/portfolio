@@ -46,9 +46,7 @@ const Cards: React.FC = () => {
         } else {
             description?.style.setProperty('opacity', '0');
             logo?.style.setProperty('opacity', '1');
-
         }
-    
     }
 
     const descriptionRef = useRef(null);
@@ -67,82 +65,73 @@ const Cards: React.FC = () => {
             } catch (error) {
                 console.error('Error fetching data:', error); 
                 }
-        };
+            };
 
         fetchData(); 
                  
-    },[]);  
-
-    const observerCardElement = () => {
-        let observer = new IntersectionObserver((entries) => {
-            console.log("card-text")
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.animate(
-                        [
-                            { transform: "translateY(50px)", opacity: 0 },
-                            { transform: "translateY(0px)", opacity: 1 },
-                        ],
-                        {
-                            duration: 500,
-                        }
-                    ).onfinish = () => {
-                    (entry.target as HTMLElement).style.opacity = "1";
-                    };
-                    
-                    observer.unobserve(entry.target);
-                }
+    },[]); 
+    
+    useEffect(()=> {
+        const observerCardElement = () => {
+            let observer = new IntersectionObserver((entries) => {
+                console.log("card-text")
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.animate(
+                            [
+                                { transform: "translateY(50px)", opacity: 0 },
+                                { transform: "translateY(0px)", opacity: 1 },
+                            ],
+                            {
+                                duration: 500,
+                            }
+                        ).onfinish = () => {
+                        (entry.target as HTMLElement).style.opacity = "1";
+                        };
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
             });
-        });
+                
+            const elementsToObserve = document.querySelectorAll('.card-text');
+            const elementsToObserve2 = document.querySelectorAll('.card-Img');
             
-        const elementsToObserve = document.querySelectorAll('.card-text');
-        const elementsToObserve2 = document.querySelectorAll('.card-Img');
-        
-        elementsToObserve.forEach((element) => {
-            observer.observe(element);
-        });
-        
-        elementsToObserve2.forEach((element) => {
-            observer.observe(element);
-        });  
-    }
-    
-     observerCardElement();
-
-
-     useEffect(() => {
-        const tiltCards = document.querySelectorAll('.card-Img') as NodeListOf<HTMLDivElement>;
-    
-        const handleMouseEnter = (card: HTMLDivElement) => (e: MouseEvent) => {
-            const rect = card.getBoundingClientRect();
-            const cardCenterX = rect.left + rect.width / 2;
-            const cardCenterY = rect.top + rect.height / 2;
-    
-            const xAxis = (e.clientX - cardCenterX) / 5;
-            const yAxis = (e.clientY - cardCenterY) / 5;
-    
-            card.style.setProperty("--rotateX", -1 * yAxis + "deg");
-            card.style.setProperty("--rotateY", xAxis + "deg");
-        };
-    
-        const handleMouseLeave = (card: HTMLDivElement) => () => {
-            card.style.removeProperty("--rotateX");
-            card.style.removeProperty("--rotateY");
-        };
-    
-        tiltCards.forEach((card) => {
-            card.addEventListener('mouseenter', handleMouseEnter(card));
-            card.addEventListener('mouseleave', handleMouseLeave(card));
-        });
-    
-        // Cleanup function
-        return () => {
-            tiltCards.forEach((card) => {
-                card.removeEventListener('mouseenter', handleMouseEnter(card));
-                card.removeEventListener('mouseleave', handleMouseLeave(card));
+            elementsToObserve.forEach((element) => {
+                observer.observe(element);
             });
-        };
-    }, []); // Empty dependency a
+            
+            elementsToObserve2.forEach((element) => {
+                observer.observe(element);
+            });  
+        }
+        
+        observerCardElement();
+    })
+
+    
+
+
+    const tiltCards = document.querySelectorAll('.card-Img') as NodeListOf<HTMLDivElement>;
+
+        tiltCards.forEach((card) => {
+            card.addEventListener('mousemove', (e: MouseEvent) => {
+                const rect = card.getBoundingClientRect();
+                const cardCenterX = rect.left + rect.width / 2;
+                const cardCenterY = rect.top + rect.height / 2;
+                
+                const xAxis = (e.clientX - cardCenterX) / 5;
+                const yAxis = (e.clientY - cardCenterY) / 5;
+
+                card.style.setProperty("--rotateX", -1 * yAxis + "deg");
+                card.style.setProperty("--rotateY", xAxis + "deg");            
+            });
+    
+            card.addEventListener('mouseleave', () => {
+                card.style.removeProperty("--rotateX");
+                card.style.removeProperty("--rotateY");
+            });
+        }); 
     
 
         return (              
