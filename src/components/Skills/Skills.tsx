@@ -43,7 +43,10 @@ const {isDarkMode} = useTheme()
           
           fetchDataLogo();
 
-        },[])
+    },[])
+    useEffect(() => {
+
+    })
 
     const observeLogoElements = () => {
       const listSkill = document.querySelectorAll('.container-skill-list li')
@@ -93,7 +96,7 @@ const {isDarkMode} = useTheme()
             observer.unobserve(entry.target);
           }
         });
-      });
+      }, { threshold: 0 });
 
       if (resumeParagraph) {
         observer.observe(resumeParagraph);
@@ -105,6 +108,7 @@ const {isDarkMode} = useTheme()
     };
 
     const myCV = document.querySelector(".CV") as HTMLElement | null
+
     const observer3 = new IntersectionObserver((entries) => {
       entries.forEach((entry)=> {
         setTimeout(() => {
@@ -125,7 +129,7 @@ const {isDarkMode} = useTheme()
         }, 500);
       
       });
-    })
+    }, { threshold: 0 })
 
     if (myCV) {
       observer3.observe(myCV)
