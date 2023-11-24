@@ -1,5 +1,6 @@
 import "./Skills.scss"
 import { useEffect, useState } from "react"
+import CV from "../../assets/images/Leopold_Dagorn.pdf"
 // import { logos } from "../../assets/variables/variables";
 import { logoAPI } from "../utils/api";
 import { useTheme } from "../utils/ThemeContext";
@@ -50,7 +51,6 @@ const {isDarkMode} = useTheme()
           const listSkill = document.querySelectorAll('.container-skill-list li')
 
           const observer2 = new IntersectionObserver((entries) => {
-            console.log("listskill On")
             entries.forEach((entry) => {
               if (entry.isIntersecting) {
                 entry.target.animate(
@@ -77,7 +77,6 @@ const {isDarkMode} = useTheme()
           const logoElements = document.querySelectorAll('.flip-card');
 
           const observer = new IntersectionObserver((entries) => {
-            console.log("resumeParagraph On")
 
             entries.forEach((entry, index) => {
               if (entry.isIntersecting) {
@@ -142,7 +141,6 @@ const {isDarkMode} = useTheme()
       observer3.observe(myCV)
     }
 
-  // const CV = "../../assets/images/Leopold_Dagorn.pdf"
 
 
     return (
@@ -195,7 +193,7 @@ const {isDarkMode} = useTheme()
         <section id="resume" className="resume parallaxSkill">
           <h1 className="resume-title">My Resume</h1>
           <p className="resume-paragraph">Découvrez mon profil et parcours complet, en téléchargeant mon CV          
-            {/* <a className={`CV ${isDarkMode && 'light'}`} href={CV}>My resume</a> */}
+            <a className={`CV ${isDarkMode && 'light'}`} href={CV} target="_blank">My resume</a>
           </p>
         </section>
     </div>
