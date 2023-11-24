@@ -82,7 +82,9 @@
     }
 
     &:hover .flip-card-inner {
-        transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+        transform: rotateY(180deg);    
     }
   
     &-front, &-back {
@@ -90,12 +92,13 @@
         width: 100%;
         height: 100%;
         -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
         backface-visibility: hidden;
     }
 }
 
 .parallaxSkill {
-    background-image: url("../../assets/images/fondSombre.avif");
+    background-image: url("../../assets/images/fond-blanc.avif");
     min-height: 30vh; 
     background-attachment: fixed;
     background-position: center;
@@ -113,7 +116,7 @@
 
     &-title {
         text-align: center;
-        color: white;
+        color: black;
     }
 
     &-paragraph {
@@ -123,7 +126,8 @@
         flex-direction: column;
         font-size: 25px;
         font-weight: bolder;
-        color: white;
+        color: black;
+        margin: 30px;
     }
 }
 
@@ -138,7 +142,7 @@
     width: 150px;
     margin-top: 30px;
     transition: background-color 0.4s;
-    color: white;
+    color: black;
     font-weight: bold;
 
     &:active {

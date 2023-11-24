@@ -74,7 +74,6 @@ const Cards: React.FC = () => {
     useEffect(() => {
         const observerCardElement = () => {
             let observer = new IntersectionObserver((entries) => {
-                console.log("card-text")
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         entry.target.animate(
@@ -108,10 +107,7 @@ const Cards: React.FC = () => {
         
         observerCardElement();
 
-    })    
-       
-
-    
+    })        
 
     useEffect(()=> {
 
@@ -137,6 +133,10 @@ const Cards: React.FC = () => {
         }); 
     })
 
+    const handleClicSeeMore = () => {
+        console.log("ca clique")
+    }
+
 
         return (              
               <section className="project" id="my-works">
@@ -147,7 +147,7 @@ const Cards: React.FC = () => {
                             <img className={`card-Img ${isDarkMode ? 'low-box-shadow' : ''}`}
                                 src={`https://leopolddagorn.fr${card.attributes.image.data[0].attributes.url}`} 
                                 alt={`Card ${index}`} />
-                        <div className={`card-text ${isDarkMode ? 'light-text' : 'dark-text'}`}>
+                            <div className={`card-text ${isDarkMode ? 'light-text' : 'dark-text'}`}>
                                 <h2 className='card-title'>
                                     {card.attributes.title}
                                 </h2>
@@ -173,6 +173,8 @@ const Cards: React.FC = () => {
                             </div>
                         </div>
                     ))}
+
+                    <p onClick={handleClicSeeMore}>See mores</p>
                 </div>
             </section>
         );
