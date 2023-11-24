@@ -13,7 +13,7 @@
 .form {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 50%;
     margin: auto;
     margin-top: 50px;
     text-align: left;
@@ -35,6 +35,13 @@ input {
     &::placeholder {
         font-family: 'Courier New', Courier, monospace;
 
+    }
+}
+
+@media screen and (max-width: 600px){
+
+    .form {
+        width: 75%;
     }
 }
 
