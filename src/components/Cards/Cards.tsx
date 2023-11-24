@@ -134,14 +134,27 @@ const Cards: React.FC = () => {
         }); 
     })
 
-    const cardContainer2 =  document.querySelector('.cardContainer2') as HTMLElement | null;
-    const handleClicSeeMore = () => {
-        console.log("ca clique")
-        if (cardContainer2) {
-            const currentDisplay = cardContainer2.style.display;
-    
-            cardContainer2.style.display = currentDisplay === "none" ? "flex" : "none";
-        }
+    const seeMoreButtonRef = useRef<HTMLButtonElement | null>(null);
+
+  const cardContainer2 = document.querySelector('.cardContainer2') as HTMLElement | null;
+
+  if (cardContainer2) {
+    cardContainer2.style.display = 'none';
+  }
+
+  const handleClicSeeMore = () => {
+    console.log('ca clique');
+
+    if (cardContainer2) {
+      const currentDisplay = cardContainer2.style.display;
+
+      cardContainer2.style.display = currentDisplay === 'none' ? 'flex' : 'none';
+      console.log(currentDisplay);
+
+      if (seeMoreButtonRef.current) {
+        seeMoreButtonRef.current.innerText = currentDisplay === 'none' ? 'See less' : 'See more';
+      }
+    }
     }
 
         return (              
@@ -215,9 +228,12 @@ const Cards: React.FC = () => {
                                 </div>
                             ))}
                     </div>
+                    <div className="addCardContainer">
+                        <button ref={seeMoreButtonRef} className='addCard' onClick={handleClicSeeMore}>
+                            See more
+                        </button>
+                    </div>
 
-
-                    <p className='addCard' onClick={handleClicSeeMore}>See mores</p>
             </section>
         );
         
