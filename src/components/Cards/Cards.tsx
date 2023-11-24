@@ -33,6 +33,7 @@ interface CardsData {
 const Cards: React.FC = () => {
 
     const [cardsData, setCardsData] = useState<CardsData[]>([]);
+
     const {isDarkMode} = useTheme()
 
 
@@ -133,16 +134,21 @@ const Cards: React.FC = () => {
         }); 
     })
 
+    const cardContainer2 =  document.querySelector('.cardContainer2') as HTMLElement | null;
     const handleClicSeeMore = () => {
         console.log("ca clique")
+        if (cardContainer2) {
+            const currentDisplay = cardContainer2.style.display;
+    
+            cardContainer2.style.display = currentDisplay === "none" ? "flex" : "none";
+        }
     }
-
 
         return (              
               <section className="project" id="my-works">
                 <h1 className="project-title">My Works</h1>
                 <div className="cardContainer">
-                    {cardsData.map((card, index) => (
+                {cardsData.slice(0, 4).map((card, index) => (
                         <div className={`card ${index % 2 === 0 ? "card-even" : "card-odd"}`} key={index}>
                             <img className={`card-Img ${isDarkMode ? 'low-box-shadow' : ''}`}
                                 src={`https://leopolddagorn.fr${card.attributes.image.data[0].attributes.url}`} 
@@ -174,8 +180,44 @@ const Cards: React.FC = () => {
                         </div>
                     ))}
 
-                    <p onClick={handleClicSeeMore}>See mores</p>
-                </div>
+                   
+                </div> 
+                
+                <div className='cardContainer2'>
+                        { cardsData.slice(4, 8).map((card, index) => (
+                                <div className={`card ${index % 2 === 0 ? "card-even" : "card-odd"}`} key={index}>
+                                <img className={`card-Img ${isDarkMode ? 'low-box-shadow' : ''}`}
+                                    src={`https://leopolddagorn.fr${card.attributes.image.data[0].attributes.url}`} 
+                                    alt={`Card ${index}`} />
+                                <div className={`card-text ${isDarkMode ? 'light-text' : 'dark-text'}`}>
+                                    <h2 className='card-title'>
+                                    {card.attributes.title}
+                                    </h2>
+                                    <p ref={descriptionRef} className={`card-description${index}`}>
+                                    {card.attributes.cardProject} 
+                                    </p>
+                                    <div className={`card-logo-container${index}`}>
+                                    {card.attributes.logo.data.map((logo, logoIndex: number) => (
+                                        <img
+                                        key={logoIndex}
+                                        className='logo'
+                                        src={`https://leopolddagorn.fr${logo.attributes.url}`}
+                                        alt={`Logo ${logoIndex}`}
+                                        />
+                                    ))}
+                                    </div>
+                                    <div className='card-button'>
+                                    <Button link={card.attributes.githubLink} />
+                                    <Button appear={true} className={`card-description-change ${index} ${isDarkMode ? 'light-text' : 'dark-text' }`}
+                                        onClick={() => handleConsole(index)}/>
+                                    </div>
+                                </div>
+                                </div>
+                            ))}
+                    </div>
+
+
+                    <p className='addCard' onClick={handleClicSeeMore}>See mores</p>
             </section>
         );
         
