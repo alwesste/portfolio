@@ -110,8 +110,6 @@ const {isDarkMode} = useTheme()
         observeLogoElements()
         
     })
-  
-    
 
     const myCV = document.querySelector(".CV") as HTMLElement | null
 
