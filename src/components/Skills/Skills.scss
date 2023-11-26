@@ -128,42 +128,106 @@
         font-weight: bolder;
         color: black;
         margin: 30px;
+
+        &-cv {
+            margin-top: 50px;
+        }
     }
 }
 
+.dark {
+    color: rgb(240,240,240);
+}
+
 .CV {
+    background-color: rgb(54, 54, 54);
     display: block;
-    border: solid 2px black;
-    border-radius: 20px;
-    padding: 10px 20px;
+    border: none;
+    padding: 15px;
+    font-weight: bold;
+    margin: auto;
+    cursor: pointer;
+    position: relative;
+    color: rgb(240,240,240);
     text-decoration: none;
     opacity: 0;
-    text-align: center;    
-    width: 150px;
-    margin-top: 30px;
-    transition: background-color 0.4s;
-    color: black;
-    font-weight: bold;
+
+    z-index: 0;
+
+    &::before,
+    &::after {
+        content: '';
+        width: 5%; height: 20%;
+        transition: 0.35s;
+        position: absolute;
+    }
+
+    &::before {
+        bottom: -5px; left: -5px;
+        border-left: 2px solid rgb(28, 31, 30);
+        border-bottom: 2px solid rgb(28, 31, 30);
+    }
+
+    &::after {
+        top: -5px; right: -5px;
+        border-right: 2px solid rgb(28, 31, 30);
+        border-top: 2px solid rgb(28, 31, 30);
+    }
+
+    &:hover::before,
+    &:hover::after {
+        width: 105%;
+        height: 110%;
+    }
 
     &:active {
-        transform: scale(0.95);
+        scale: 0.95;
+    }
+}
+
+.CVDark {
+    background-color:rgb(34, 39, 46);
+    display: block;
+    border: none;
+    padding: 15px;
+    font-weight: bold;
+    margin: auto;
+    cursor: pointer;
+    position: relative;
+    color: rgb(240,240,240);
+    text-decoration: none;
+    opacity: 0;
+
+    z-index: 0;
+
+    &::before,
+    &::after {
+        content: '';
+        width: 5%; height: 20%;
+        transition: 0.35s;
+        position: absolute;
     }
 
-    &.light {
-        color: black;
-        border: solid 2px black;
-
-
-        &:hover {
-            background-color: darkgrey;
-        }
+    &::before {
+        bottom: -5px; left: -5px;
+        border-left: 2px solid rgb(240,240,240);
+        border-bottom: 2px solid rgb(240,240,240);
     }
 
-    &:hover {
-        background-color: rgb(13, 11, 11);
-        border: 2px black solid;
-        color:aliceblue;
-        font-weight: bold;
+    &::after {
+        top: -5px; right: -5px;
+        border-right: 2px solid rgb(240,240,240);
+        border-top: 2px solid rgb(240,240,240);
+    }
+
+    &:hover::before,
+    &:hover::after {
+        width: 105%;
+        height: 110%;
+    }
+
+    &:active {
+        scale: 0.95;
     }
 }
 

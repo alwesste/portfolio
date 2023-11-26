@@ -93,8 +93,7 @@ const About: React.FC = () => {
                 </div>
 
             </div> 
-            
-            <div className="parallax"></div>    
+            <div className={`${isDarkMode ? "" : 'parallax'}`}></div>    
 
         </div>
         

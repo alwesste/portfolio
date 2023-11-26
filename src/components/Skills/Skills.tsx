@@ -123,7 +123,7 @@ const {isDarkMode} = useTheme()
               { transform: "scale(1)", opacity: 1 },
             ],
             {
-              duration: 500,
+              duration: 300,
             }
           ).onfinish = () => {
             (entry.target as HTMLElement).style.opacity = "1";
@@ -188,10 +188,12 @@ const {isDarkMode} = useTheme()
         </div>       
         
 
-        <section id="resume" className="resume parallaxSkill">
-          <h1 className="resume-title">My Resume</h1>
-          <p className="resume-paragraph">Découvrez mon profil et parcours complet, en téléchargeant mon CV          
-            <a className={`CV ${isDarkMode && 'light'}`} href={CV} target="_blank">My resume</a>
+        <section id="resume" className={`resume ${isDarkMode ? "" : 'parallaxSkill'} `}>
+          <h1 className={`resume-title ${isDarkMode && 'dark'}`}>My Resume</h1>
+          <p className={`resume-paragraph ${isDarkMode && 'dark'}`}>Découvrez mon profil et parcours complet, en téléchargeant mon CV  
+            <div className="resume-paragraph-cv">
+                <a className={isDarkMode ? 'CVDark' : 'CV'} href={CV} target="_blank">My resume</a>  
+            </div>        
           </p>
         </section>
     </div>
