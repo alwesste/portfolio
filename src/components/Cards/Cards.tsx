@@ -152,14 +152,14 @@ const Cards: React.FC = () => {
       console.log(currentDisplay);
 
       if (seeMoreButtonRef.current) {
-        seeMoreButtonRef.current.innerText = currentDisplay === 'none' ? 'See less' : 'See more';
+        seeMoreButtonRef.current.innerText = currentDisplay === 'none' ? 'Retirer du contenu' : "Voir d'avantage";
       }
     }
-    }
+}
 
         return (              
               <section className="project" id="my-works">
-                <h1 className="project-title">My Works</h1>
+                <h1 className="project-title">Mes travaux</h1>
                 <div className="cardContainer">
                 {cardsData.slice(0, 4).map((card, index) => (
                         <div className={`card ${index % 2 === 0 ? "card-even" : "card-odd"}`} key={index}>
@@ -197,7 +197,7 @@ const Cards: React.FC = () => {
                 </div> 
                 
                 <div className='cardContainer2'>
-                        { cardsData.slice(4, 8).map((card, index) => (
+                        { cardsData.slice(4, cardsData.length).map((card, index) => (
                                 <div className={`card ${index % 2 === 0 ? "card-even" : "card-odd"}`} key={index}>
                                 <img className={`card-Img ${isDarkMode ? 'low-box-shadow' : ''}`}
                                     src={`https://leopolddagorn.fr${card.attributes.image.data[0].attributes.url}`} 
@@ -231,7 +231,7 @@ const Cards: React.FC = () => {
 
                     <div className="addCardContainer">
                         <button ref={seeMoreButtonRef} className={ `${isDarkMode ? 'addCard-dark' : 'addCard'}`} onClick={handleClicSeeMore}>
-                            <div className='addCard-text'>See more</div> 
+                            <div className='addCard-text'>Voir d'avantage</div> 
                         </button>
 
                     </div>

@@ -1,6 +1,7 @@
 .project {
     display: flex;
     flex-direction: column;
+
     &-title {
         text-align: center;
         margin-bottom: 100px;
@@ -133,7 +134,7 @@
     
 }
 .low-box-shadow {
-    box-shadow: 0 0 10px rgb(115, 115, 115);
+    box-shadow:none;
 }
 
 .addCardContainer {
@@ -142,7 +143,6 @@
     display: flex;
     margin-top: 30px;
 }
-
 
 .addCard {
     border: none;
@@ -175,7 +175,7 @@
 
     &:hover::before,
     &:hover::after {
-        width: 108%;
+        width: 105%;
         height: 116%;
     }
 
@@ -221,11 +221,8 @@
         &:active {
             scale: 0.95;
         }
-    
     }
 }
-
-
 
 @for $i from 0 through 10 {
 

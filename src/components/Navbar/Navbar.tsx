@@ -14,11 +14,12 @@ const Navbar: React.FC = () => {
   return (
     <>
       <ul className={`listContainer ${isMenuOpen ? 'active' : ''} ${isDarkMode ? 'dark-mode' : ''}`} onClick={toggleMenu}>
-          <li><a className='list' href="#about">About</a></li>
-          <li><a className='list' href="#my-works">My Works</a></li>
-          <li><a className='list' href="#competences">Skill</a></li>
+          <li><a className='list' href="#about">A propos</a></li>
+          <li><a className='list' href="#my-works">Mes travaux</a></li>
+          <li><a className='list' href="#competences">Mes competences</a></li>
+          <li><a className='list' href="#resume">Mon CV</a></li>            
           <li><a className='list' href="#contact">Contact</a></li>          
-          <li><a className='list' href="#resume">Resume</a></li>     
+   
           <div onClick={toggleTheme} className={`lightMode ${isDarkMode ? 'lightdark-mode' : ''}`}>
             {isDarkMode ? <i className="fa-regular fa-lightbulb"></i> : <i className="fa-regular fa-moon"></i>}
           </div>   
