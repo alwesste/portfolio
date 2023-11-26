@@ -202,36 +202,38 @@ const Cards: React.FC = () => {
                                 <img className={`card-Img ${isDarkMode ? 'low-box-shadow' : ''}`}
                                     src={`https://leopolddagorn.fr${card.attributes.image.data[0].attributes.url}`} 
                                     alt={`Card ${index}`} />
-                                <div className={`card-text ${isDarkMode ? 'light-text' : 'dark-text'}`}>
-                                    <h2 className='card-title'>
-                                    {card.attributes.title}
-                                    </h2>
-                                    <p ref={descriptionRef} className={`card-description${index}`}>
-                                    {card.attributes.cardProject} 
-                                    </p>
-                                    <div className={`card-logo-container${index}`}>
-                                    {card.attributes.logo.data.map((logo, logoIndex: number) => (
-                                        <img
-                                        key={logoIndex}
-                                        className='logo'
-                                        src={`https://leopolddagorn.fr${logo.attributes.url}`}
-                                        alt={`Logo ${logoIndex}`}
-                                        />
-                                    ))}
+                                    <div className={`card-text ${isDarkMode ? 'light-text' : 'dark-text'}`}>
+                                        <h2 className='card-title'>
+                                        {card.attributes.title}
+                                        </h2>
+                                        <p ref={descriptionRef} className={`card-description${index}`}>
+                                        {card.attributes.cardProject} 
+                                        </p>
+                                        <div className={`card-logo-container${index}`}>
+                                        {card.attributes.logo.data.map((logo, logoIndex: number) => (
+                                            <img
+                                            key={logoIndex}
+                                            className='logo'
+                                            src={`https://leopolddagorn.fr${logo.attributes.url}`}
+                                            alt={`Logo ${logoIndex}`}
+                                            />
+                                        ))}
+                                        </div>
+                                        <div className='card-button'>
+                                        <Button link={card.attributes.githubLink} />
+                                        <Button appear={true} className={`card-description-change ${index} ${isDarkMode ? 'light-text' : 'dark-text' }`}
+                                            onClick={() => handleConsole(index)}/>
+                                        </div>
                                     </div>
-                                    <div className='card-button'>
-                                    <Button link={card.attributes.githubLink} />
-                                    <Button appear={true} className={`card-description-change ${index} ${isDarkMode ? 'light-text' : 'dark-text' }`}
-                                        onClick={() => handleConsole(index)}/>
-                                    </div>
-                                </div>
                                 </div>
                             ))}
                     </div>
+
                     <div className="addCardContainer">
-                        <button ref={seeMoreButtonRef} className='addCard' onClick={handleClicSeeMore}>
-                            See more
+                        <button ref={seeMoreButtonRef} className={ `${isDarkMode ? 'addCard-dark' : 'addCard'}`} onClick={handleClicSeeMore}>
+                            <div className='addCard-text'>See more</div> 
                         </button>
+
                     </div>
 
             </section>

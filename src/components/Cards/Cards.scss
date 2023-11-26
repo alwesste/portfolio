@@ -135,26 +135,96 @@
 .low-box-shadow {
     box-shadow: 0 0 10px rgb(115, 115, 115);
 }
-.addCardContainer{
+
+.addCardContainer {
     width: 1000px;
     margin: auto;
     display: flex;
     margin-top: 30px;
+}
 
-    & .addCard {
-    border: black 2px solid;
-    border-radius: 15px;
+
+.addCard {
+    border: none;
     padding: 15px;
-    background-color: #e85555;
     font-weight: bold;
     margin: auto;
     cursor: pointer;
+    position: relative;
+    z-index: 0;
 
+    &::before,
+    &::after {
+        content: '';
+        width: 10%; height: 30%;
+        transition: 0.35s;
+        position: absolute;
+    }
+
+    &::before {
+        bottom: -5px; left: -5px;
+        border-left: 2px solid rgb(28, 31, 30);
+        border-bottom: 2px solid rgb(28, 31, 30);
+    }
+
+    &::after {
+        top: -5px; right: -5px;
+        border-right: 2px solid rgb(28, 31, 30);
+        border-top: 2px solid rgb(28, 31, 30);
+    }
+
+    &:hover::before,
+    &:hover::after {
+        width: 108%;
+        height: 116%;
+    }
+
+    &:active {
+        scale: 0.95;
+    }
+
+    &-dark {
+        border: none;
+        padding: 15px;
+        font-weight: bold;
+        margin: auto;
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+    
+        &::before,
+        &::after {
+            content: '';
+            width: 10%; height: 30%;
+            transition: 0.35s;
+            position: absolute;
+        }
+    
+        &::before {
+            bottom: -5px; left: -5px;
+            border-left: 2px solid rgb(222, 230, 227);
+            border-bottom: 2px solid rgb(222, 230, 227);
+        }
+    
+        &::after {
+            top: -5px; right: -5px;
+            border-right: 2px solid rgb(222, 230, 227);
+            border-top: 2px solid rgb(222, 230, 227);
+        }
+    
+        &:hover::before,
+        &:hover::after {
+            width: 108%;
+            height: 116%;
+        }
+    
         &:active {
-            transform: scale(0.95);
-        }   
+            scale: 0.95;
+        }
+    
     }
 }
+
 
 
 @for $i from 0 through 10 {
@@ -193,6 +263,10 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 100%;
+    }
+
+    .addCardContainer {
         width: 100%;
     }
 }
