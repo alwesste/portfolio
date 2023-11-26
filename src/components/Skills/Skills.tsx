@@ -143,7 +143,7 @@ const {isDarkMode} = useTheme()
 
     return (
     <div className="container">
-        <h1 className="container-title" id="competences">My Skills</h1>
+        <h1 className="container-title" id="competences">Mes competences</h1>
         <h2 className="container-title2">Technologies utilisées :</h2>
 
         <div className="container-group">
@@ -189,15 +189,15 @@ const {isDarkMode} = useTheme()
         
 
         <section id="resume" className={`resume ${isDarkMode ? "" : 'parallaxSkill'} `}>
-          <h1 className={`resume-title ${isDarkMode && 'dark'}`}>My Resume</h1>
+          <h1 className={`resume-title ${isDarkMode && 'dark'}`}>Mon CV</h1>
           <p className={`resume-paragraph ${isDarkMode && 'dark'}`}>Découvrez mon profil et parcours complet, en téléchargeant mon CV  
             <div className="resume-paragraph-cv">
-                <a className={isDarkMode ? 'CVDark' : 'CV'} href={CV} target="_blank">My resume</a>  
+                <a className={isDarkMode ? 'CVDark' : 'CV'} href={CV} target="_blank">Mon CV</a>  
             </div>        
           </p>
         </section>
     </div>
-);
+    );
 }
 
 export default Skills

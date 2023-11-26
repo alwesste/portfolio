@@ -27,7 +27,7 @@ const Contact: React.FC = () => {
         <section className="contact">
             <h1 className="contact-title" id="contact">Contact</h1>
             <form className="form" onSubmit={handleFormSubmit}>
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name">Nom</label>
                 <input
                     className="form-name"
                     type="text"
@@ -62,7 +62,7 @@ const Contact: React.FC = () => {
                     onChange={handleInputChange}
                 />
 
-                <button className="form-button" type="submit">Send</button>
+                <button className="form-button" type="submit">Envoyer</button>
             </form>
         </section>
     )

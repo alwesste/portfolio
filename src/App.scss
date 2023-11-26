@@ -5,7 +5,6 @@ body  {
     box-sizing: border-box;
     scroll-behavior: smooth;
     overflow-x: hidden;
-    // overflow-anchor: none;
 }
 
 body::-webkit-scrollbar {
@@ -16,9 +15,6 @@ body::-webkit-scrollbar-thumb {
     background-color:#f14f4f;
     border-radius: 10px;
 }
-
-// *{    border: blue solid 1px;
-// }
 
 html {
     scroll-behavior: smooth;

@@ -15,11 +15,11 @@
 
     &.active {
       opacity: 1;
-      background-color: rgb(31, 31, 31, 0.96);
+      background-color: rgb(34, 39, 46);
       z-index: 3;
 
       &.dark-mode {
-        background-color: rgb(34, 49, 70);
+        background-color: black;
       }
     }
 
