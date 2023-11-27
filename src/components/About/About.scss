@@ -32,7 +32,7 @@
         max-width: 600px;
         opacity: 0;
         transition: opacity 0.3s;
-        margin-top: 50px;
+        margin-top: 70px;
     
         &.visible {
             opacity: 1;
@@ -47,6 +47,7 @@
         width: 80%;
         opacity: 1;
         transition: opacity 0.3s;
+        margin-top: 90px;
     
         &.visible { 
             opacity: 0;
