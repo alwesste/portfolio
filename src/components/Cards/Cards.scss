@@ -67,6 +67,16 @@
         }
     }
 
+    @for $i from 0 through 10 {
+        .card-description2#{$i} {
+            width: 500px;
+            opacity: 1;
+            transition: opacity 0.3s;
+            text-align: justify;
+            position: relative;
+        }
+    }
+
     &-title {
         text-transform: uppercase;
         text-align: left;
@@ -235,6 +245,16 @@
         position: absolute;
         top: 30px;
     }
+
+    .card-logo-container2#{$i} {
+        display: flex;
+        justify-content: space-around;
+        opacity: 0;
+        transition: opacity 0.3s;
+        width: 500px;
+        position: absolute;
+        top: 30px;
+    }
 }
 
 .logo {
@@ -248,13 +268,17 @@
         width: 100%;
     }
 
+    .cardContainer2 {
+        width: 100%;
+    }
+
     .card {
         flex-direction: column;
 
         &-Img {
             margin-bottom: 30px;
         }
-    }
+    }   
 
     .card-button {
         display: flex;

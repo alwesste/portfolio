@@ -33,7 +33,7 @@ const Contact: React.FC = () => {
                     type="text"
                     name="name"
                     id="name"
-                    placeholder="Name"
+                    placeholder="Nom"
                     required
                     onChange={handleInputChange}
                 />
