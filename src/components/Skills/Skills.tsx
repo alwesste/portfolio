@@ -189,11 +189,11 @@ const {isDarkMode} = useTheme()
 
         <section id="resume" className={`resume ${isDarkMode ? "" : 'parallaxSkill'} `}>
           <h1 className={`resume-title ${isDarkMode && 'dark'}`}>Mon CV</h1>
-          <p className={`resume-paragraph ${isDarkMode && 'dark'}`}>Découvrez mon profil et parcours complet, en téléchargeant mon CV  
+          <div className={`resume-paragraph ${isDarkMode && 'dark'}`}>Découvrez mon profil et parcours complet, en téléchargeant mon CV  
             <div className="resume-paragraph-cv">
                 <a className={isDarkMode ? 'CVDark' : 'CV'} href={CV} target="_blank">Mon CV</a>  
             </div>        
-          </p>
+          </div>
         </section>
     </div>
     );

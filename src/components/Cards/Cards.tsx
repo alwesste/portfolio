@@ -205,12 +205,10 @@ const Cards: React.FC = () => {
                             </div>
                         </div>
                     ))}
-
                    
                 </div> 
                 
                 <div className='cardContainer2'>
-
                         {cardsData.slice(4, cardsData.length).map((card, index) => (
                                 <div className={`card ${index % 2 === 0 ? "card-even" : "card-odd"}`} key={index}>
                                 <img className={`card-Img ${isDarkMode ? 'low-box-shadow' : ''}`}
