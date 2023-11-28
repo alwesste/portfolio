@@ -1,7 +1,6 @@
 import "./Skills.scss"
 import { useEffect, useState } from "react"
 import CV from "../../assets/images/Leopold_Dagorn.pdf"
-// import { logos } from "../../assets/variables/variables";
 import { logoAPI } from "../utils/api";
 import { useTheme } from "../utils/ThemeContext";
 

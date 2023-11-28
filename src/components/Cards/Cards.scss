@@ -67,6 +67,16 @@
         }
     }
 
+    @for $i from 0 through 10 {
+        .card-description2#{$i} {
+            width: 500px;
+            opacity: 1;
+            transition: opacity 0.3s;
+            text-align: justify;
+            position: relative;
+        }
+    }
+
     &-title {
         text-transform: uppercase;
         text-align: left;
@@ -227,6 +237,16 @@
 @for $i from 0 through 10 {
 
     .card-logo-container#{$i} {
+        display: flex;
+        justify-content: space-around;
+        opacity: 0;
+        transition: opacity 0.3s;
+        width: 500px;
+        position: absolute;
+        top: 30px;
+    }
+
+    .card-logo-container2#{$i} {
         display: flex;
         justify-content: space-around;
         opacity: 0;

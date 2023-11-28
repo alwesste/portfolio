@@ -2,7 +2,6 @@ import React, { useEffect,  useRef, useState } from 'react';
 import { cardAPI } from '../utils/api';
 import Button from "../Button/Button";
 import { useTheme } from '../utils/ThemeContext';
-// import { cards, logos } from '../../assets/variables/variables';
 import "./Cards.scss"
 
 interface CardsData {
@@ -50,6 +49,18 @@ const Cards: React.FC = () => {
         }
     }
 
+    const handleConsole2 = (index: number) => {
+        const description = document.querySelector(`.card-description2${index}`) as HTMLElement | null;
+        const logo = document.querySelector(`.card-logo-container2${index}`) as HTMLElement | null;
+
+        if (description?.style?.opacity === '0' && logo?.style?.opacity === '1') {
+            description.style.opacity = '1';
+            logo.style.opacity = '0'
+        } else {
+            description?.style.setProperty('opacity', '0');
+            logo?.style.setProperty('opacity', '1');
+        }
+    }
     const descriptionRef = useRef(null);
 
     useEffect(() => {
@@ -160,7 +171,9 @@ const Cards: React.FC = () => {
         return (              
               <section className="project" id="my-works">
                 <h1 className="project-title">Mes travaux</h1>
+
                 <div className="cardContainer">
+
                 {cardsData.slice(0, 4).map((card, index) => (
                         <div className={`card ${index % 2 === 0 ? "card-even" : "card-odd"}`} key={index}>
                             <img className={`card-Img ${isDarkMode ? 'low-box-shadow' : ''}`}
@@ -197,7 +210,8 @@ const Cards: React.FC = () => {
                 </div> 
                 
                 <div className='cardContainer2'>
-                        { cardsData.slice(4, cardsData.length).map((card, index) => (
+
+                        {cardsData.slice(4, cardsData.length).map((card, index) => (
                                 <div className={`card ${index % 2 === 0 ? "card-even" : "card-odd"}`} key={index}>
                                 <img className={`card-Img ${isDarkMode ? 'low-box-shadow' : ''}`}
                                     src={`https://leopolddagorn.fr${card.attributes.image.data[0].attributes.url}`} 
@@ -206,10 +220,10 @@ const Cards: React.FC = () => {
                                         <h2 className='card-title'>
                                         {card.attributes.title}
                                         </h2>
-                                        <p ref={descriptionRef} className={`card-description${index}`}>
+                                        <p ref={descriptionRef} className={`card-description2${index}`}>
                                         {card.attributes.cardProject} 
                                         </p>
-                                        <div className={`card-logo-container${index}`}>
+                                        <div className={`card-logo-container2${index}`}>
                                         {card.attributes.logo.data.map((logo, logoIndex: number) => (
                                             <img
                                             key={logoIndex}
@@ -222,7 +236,7 @@ const Cards: React.FC = () => {
                                         <div className='card-button'>
                                         <Button link={card.attributes.githubLink} />
                                         <Button appear={true} className={`card-description-change ${index} ${isDarkMode ? 'light-text' : 'dark-text' }`}
-                                            onClick={() => handleConsole(index)}/>
+                                            onClick={() => handleConsole2(index)}/>
                                         </div>
                                     </div>
                                 </div>
