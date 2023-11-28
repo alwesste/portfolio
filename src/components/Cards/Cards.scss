@@ -248,13 +248,17 @@
         width: 100%;
     }
 
+    .cardContainer2 {
+        width: 100%;
+    }
+
     .card {
         flex-direction: column;
 
         &-Img {
             margin-bottom: 30px;
         }
-    }
+    }   
 
     .card-button {
         display: flex;
