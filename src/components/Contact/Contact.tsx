@@ -16,7 +16,7 @@ const Contact: React.FC = () => {
         });
     }
 
-    const recipientEmail = "patate@gmail.com";
+    const recipientEmail = "leopolddag@gmail.com";
 
     const handleFormSubmit = (e: React.FormEvent) => {
         e.preventDefault();
