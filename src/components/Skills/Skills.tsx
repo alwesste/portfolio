@@ -1,6 +1,6 @@
 import "./Skills.scss"
 import { useEffect, useState } from "react"
-import CV from "../../assets/images/Leopold_Dagorn.pdf"
+import CV from "../../assets/images/Leopold_Dagorn_CV.pdf"
 import { logoAPI } from "../utils/api";
 import { useTheme } from "../utils/ThemeContext";
 
