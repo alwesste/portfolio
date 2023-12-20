@@ -5,7 +5,7 @@ import Cards from './components/Cards/Cards';
 import About from './components/About/About';
 import Skills from './components/Skills/Skills';
 import { useTheme } from './components/utils/ThemeContext';
-import './App.scss'; // Importez votre fichier de styles
+import './App.scss';
 
 function App() {
   const { isDarkMode } = useTheme();
